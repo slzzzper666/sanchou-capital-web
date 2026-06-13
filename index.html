@@ -4,207 +4,301 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>三籌資本 ｜ 每日籌碼戰報 2026/06/12（五）</title>
+<title>三籌資本</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
 <meta property="og:title" content="三籌資本 ｜ 每日籌碼戰報 2026/06/12（五）">
 <meta property="og:description" content="台股三大法人 × 期貨籌碼 × 主力分點 — 黃銅霓虹籌碼儀表">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<meta property="og:image" content="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Cinzel:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --void:#06090C; --panel:#0B141A; --panel2:#0F1C24; --line:#1A2D36;
-  --brass:#C7A24B; --brass-hi:#F4DD92; --brass-lo:#5E4720; --patina:#2E6E63;
-  --cyan:#2DE2E6; --magenta:#FF2A6D; --green:#33F5A3; --amber:#FFB23E;
-  --txt:#E9F6F5; --mut:#7C9AA0;
+  --void:#04080B; --deep:#081820; --panel:#0a1820; --panel2:#0d2129; --line:#1c3540;
+  --brass:#C7A24B; --brass-hi:#F6E2A0; --brass-lo:#5E4720; --copper:#B87333;
+  --patina:#2E8C7E;
+  --cyan:#21F0FF; --magenta:#FF2E88; --green:#37F5A3; --amber:#FFA22B; --gold:#F5C451;
+  --txt:#EAF7F7; --mut:#7FA6AC;
   --serif:"Noto Serif TC",serif; --sans:"Noto Sans TC",sans-serif;
   --tech:"Orbitron",sans-serif; --mono:"Share Tech Mono",monospace;
+  --cinzel:"Cinzel",serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
   background:var(--void); color:var(--txt); font-family:var(--sans);
   line-height:1.6; -webkit-font-smoothing:antialiased; position:relative;
+  min-height:100vh; overflow-x:hidden;
   background-image:
-    radial-gradient(1200px 600px at 50% -10%, rgba(45,226,230,.07), transparent 60%),
-    radial-gradient(900px 500px at 100% 100%, rgba(255,42,109,.06), transparent 55%),
-    linear-gradient(rgba(45,226,230,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45,226,230,.035) 1px, transparent 1px);
-  background-size:auto,auto,42px 42px,42px 42px;
+    radial-gradient(1100px 640px at 18% -8%, rgba(33,240,255,.16), transparent 60%),
+    radial-gradient(1000px 620px at 88% 6%, rgba(255,46,136,.14), transparent 58%),
+    radial-gradient(900px 700px at 50% 116%, rgba(255,162,43,.12), transparent 60%),
+    linear-gradient(180deg, #07171f 0%, #051016 42%, var(--void) 100%);
 }
-/* 掃描線 + 暈影覆蓋層 */
+/* 發光透視網格地板（synthwave）*/
+.grid{position:fixed;left:-20%;right:-20%;bottom:0;height:46vh;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(33,240,255,.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33,240,255,.45) 1px, transparent 1px);
+  background-size:64px 46px, 64px 46px;
+  transform:perspective(330px) rotateX(74deg); transform-origin:bottom center;
+  -webkit-mask-image:linear-gradient(to top, #000 0%, transparent 86%);
+  mask-image:linear-gradient(to top, #000 0%, transparent 86%); opacity:.5}
+/* 裝飾性漢字霓虹（邊欄）*/
+.kanji{position:fixed;top:6vh;z-index:0;pointer-events:none;writing-mode:vertical-rl;
+  font-family:var(--serif);font-weight:900;font-size:88px;letter-spacing:18px;
+  color:transparent;-webkit-text-stroke:1px rgba(33,240,255,.16);
+  text-shadow:0 0 30px rgba(33,240,255,.07);user-select:none}
+.kanji.l{left:8px}.kanji.r{right:8px;-webkit-text-stroke:1px rgba(255,46,136,.16);
+  text-shadow:0 0 30px rgba(255,46,136,.07)}
+@media(max-width:1180px){.kanji{display:none}}
+/* 顆粒噪點 + 掃描線 + 暈影覆蓋 */
+.grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px 160px}
 body::after{
-  content:""; position:fixed; inset:0; pointer-events:none; z-index:50;
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:61;
   background:
     repeating-linear-gradient(0deg, rgba(0,0,0,.16) 0 1px, transparent 1px 3px),
-    radial-gradient(120% 100% at 50% 50%, transparent 62%, rgba(0,0,0,.55) 100%);
+    radial-gradient(130% 100% at 50% 46%, transparent 58%, rgba(0,3,5,.7) 100%);
   mix-blend-mode:multiply;
 }
-.wrap{max-width:880px;margin:0 auto;padding:26px 16px 70px;position:relative;z-index:1}
+.wrap{max-width:900px;margin:0 auto;padding:28px 15px 72px;position:relative;z-index:2}
 
-/* 黃銅機殼框架 */
+/* 黃銅機殼框架（磨砂銅紋理 + 內陰影）*/
 .console{
-  position:relative;
-  border:3px solid transparent;border-radius:20px;
+  position:relative; border:4px solid transparent; border-radius:18px;
   background:
-    linear-gradient(var(--panel),var(--panel)) padding-box,
-    linear-gradient(160deg,var(--brass-hi),var(--brass) 28%,var(--brass-lo) 60%,var(--brass) 88%) border-box;
-  box-shadow:0 0 0 1px #000 inset, 0 18px 60px rgba(0,0,0,.6),
-             0 0 30px rgba(45,226,230,.05);
-  padding:24px 22px 30px;
+    linear-gradient(180deg, rgba(12,28,36,.94), rgba(6,16,21,.96)) padding-box,
+    repeating-linear-gradient(96deg, var(--brass-hi) 0 2px, var(--brass) 3px 6px,
+      var(--brass-lo) 7px 11px, var(--brass) 12px 15px) border-box;
+  box-shadow:0 0 0 1px #000 inset, 0 0 0 5px rgba(0,0,0,.5),
+             0 26px 80px rgba(0,0,0,.75),
+             0 0 60px rgba(33,240,255,.06);
+  padding:26px 22px 32px;
 }
-.console::before,.console::after{
-  content:"";position:absolute;width:9px;height:9px;border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,var(--brass-hi),var(--brass-lo));
-  box-shadow:0 0 0 1px #000, 0 1px 2px rgba(0,0,0,.6);
-}
-.console::before{top:11px;left:11px;
-  box-shadow:0 0 0 1px #000,calc(100% + 793px) 0 0 0 var(--brass),0 1px 2px rgba(0,0,0,.6)}
-/* 角落鉚釘（用多重 box-shadow 排列）*/
-.rivets{position:absolute;inset:0;pointer-events:none;border-radius:18px}
-.rivets span{position:absolute;width:8px;height:8px;border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,var(--brass-hi),var(--brass-lo));
-  box-shadow:0 0 0 1px #000,0 1px 1px rgba(0,0,0,.6)}
-.rivets span:nth-child(1){top:10px;left:10px}
-.rivets span:nth-child(2){top:10px;right:10px}
-.rivets span:nth-child(3){bottom:10px;left:10px}
-.rivets span:nth-child(4){bottom:10px;right:10px}
+/* 角落 L 形黃銅護角 */
+.console>.cnr{position:absolute;width:34px;height:34px;border:3px solid var(--brass);
+  filter:drop-shadow(0 0 4px rgba(0,0,0,.6));z-index:3}
+.cnr.tl{top:8px;left:8px;border-right:0;border-bottom:0;border-top-left-radius:10px}
+.cnr.tr{top:8px;right:8px;border-left:0;border-bottom:0;border-top-right-radius:10px}
+.cnr.bl{bottom:8px;left:8px;border-right:0;border-top:0;border-bottom-left-radius:10px}
+.cnr.br{bottom:8px;right:8px;border-left:0;border-top:0;border-bottom-right-radius:10px}
+/* 鉚釘列 */
+.rivets{position:absolute;inset:0;pointer-events:none;border-radius:14px}
+.rivets span{position:absolute;width:9px;height:9px;border-radius:50%;
+  background:radial-gradient(circle at 34% 28%,var(--brass-hi),var(--brass) 45%,#1c1408);
+  box-shadow:0 0 0 1px #000,0 1px 2px rgba(0,0,0,.7)}
+.rivets span:nth-child(1){top:13px;left:50px}.rivets span:nth-child(2){top:13px;right:50px}
+.rivets span:nth-child(3){bottom:13px;left:50px}.rivets span:nth-child(4){bottom:13px;right:50px}
+.rivets span:nth-child(5){top:50%;left:11px;margin-top:-4px}
+.rivets span:nth-child(6){top:50%;right:11px;margin-top:-4px}
 
-/* 角落齒輪 */
-.gear{position:fixed;width:160px;height:160px;color:rgba(199,162,75,.10);z-index:0;
-  animation:spin 60s linear infinite}
-.gear.tl{top:-46px;left:-46px}
-.gear.br{bottom:-46px;right:-46px;animation-direction:reverse;width:200px;height:200px}
+/* 角落齒輪（背景）*/
+.gear{position:fixed;width:180px;height:180px;color:rgba(199,162,75,.12);z-index:0;
+  animation:spin 90s linear infinite;filter:drop-shadow(0 0 8px rgba(255,162,43,.06))}
+.gear.tl{top:-54px;left:-54px}
+.gear.br{bottom:-58px;right:-58px;animation-direction:reverse;width:230px;height:230px}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* 儀表板抬頭 */
-.masthead{text-align:center;padding:8px 0 20px;border-bottom:1px solid var(--line);
-  margin-bottom:22px;position:relative}
-.brand{font-family:var(--tech);font-weight:700;letter-spacing:5px;font-size:12px;
-  color:var(--cyan);text-shadow:0 0 10px rgba(45,226,230,.5)}
-.title{font-family:var(--serif);font-weight:900;font-size:clamp(30px,8vw,52px);
-  letter-spacing:6px;margin:8px 0 4px;line-height:1.05;
-  background:linear-gradient(180deg,var(--brass-hi),var(--brass) 45%,var(--brass-lo));
+/* 抬頭 + LOGO */
+.masthead{text-align:center;padding:6px 0 20px;margin-bottom:20px;position:relative}
+.masthead::after{content:"";position:absolute;left:8%;right:8%;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--brass) 20%,var(--cyan) 50%,var(--brass) 80%,transparent);
+  box-shadow:0 0 12px rgba(33,240,255,.4)}
+.logobar{display:flex;align-items:center;justify-content:center;gap:16px}
+.logo{width:74px;height:74px;flex:none;filter:drop-shadow(0 0 10px rgba(255,162,43,.35))}
+.word{text-align:left}
+.brand{font-family:var(--tech);font-weight:700;letter-spacing:4px;font-size:10.5px;
+  color:var(--cyan);text-shadow:0 0 10px rgba(33,240,255,.6)}
+.title{font-family:var(--serif);font-weight:900;font-size:clamp(34px,9vw,58px);
+  letter-spacing:7px;line-height:1.02;margin:2px 0;
+  background:linear-gradient(180deg,#fff5d6,var(--brass-hi) 30%,var(--brass) 60%,var(--brass-lo));
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 1px 0 rgba(0,0,0,.7)) drop-shadow(0 0 16px rgba(199,162,75,.25))}
-.ticker{font-family:var(--mono);font-size:12.5px;color:var(--mut);margin-top:10px;
-  letter-spacing:1px;display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center}
-.ticker b{color:var(--cyan);text-shadow:0 0 8px rgba(45,226,230,.45)}
-.ticker .sep{color:var(--brass)}
+  filter:drop-shadow(0 1px 0 #000) drop-shadow(0 0 22px rgba(255,162,43,.3))}
+.subtitle{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:6px;
+  color:var(--txt);margin-top:10px;
+  text-shadow:0 0 10px rgba(33,240,255,.35),0 0 1px var(--cyan)}
+.ticker{font-family:var(--mono);font-size:12.5px;color:var(--mut);margin-top:12px;
+  letter-spacing:1px;display:flex;flex-wrap:wrap;gap:5px 12px;justify-content:center}
+.ticker b{color:var(--cyan);text-shadow:0 0 9px rgba(33,240,255,.55)}
+.ticker .sep{color:var(--amber);text-shadow:0 0 8px rgba(255,162,43,.5)}
+@media(max-width:480px){.logobar{flex-direction:column;gap:8px}.word{text-align:center}}
 
 /* 區段刻字黃銅板 */
-.plate{display:flex;align-items:center;gap:12px;margin:30px 0 16px;
-  padding:10px 16px;border-radius:10px;position:relative;
-  background:linear-gradient(180deg,#19120633,#0c0c0c66),
-    linear-gradient(100deg,var(--brass-lo),#3a2c12 50%,var(--brass-lo));
-  border:1px solid #000;
-  box-shadow:0 0 0 1px rgba(199,162,75,.25) inset,0 2px 6px rgba(0,0,0,.5)}
-.plate .pno{font-family:var(--tech);font-weight:900;font-size:15px;color:var(--brass-hi);
-  text-shadow:0 1px 0 #000;opacity:.9}
-.plate h2{font-family:var(--serif);font-weight:900;font-size:20px;letter-spacing:3px;
-  color:#efe2c2;text-shadow:0 1px 0 #000,0 -1px 0 rgba(255,255,255,.12);flex:1}
-.plate .pen{font-family:var(--tech);font-size:10.5px;letter-spacing:2px;
-  color:var(--brass);opacity:.8}
+.plate{display:flex;align-items:center;gap:13px;margin:32px 0 16px;padding:11px 16px;
+  border-radius:9px;position:relative;border:1px solid #000;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), transparent 40%),
+    repeating-linear-gradient(90deg, var(--brass-lo) 0 3px, #3a2c12 4px 7px),
+    linear-gradient(180deg, #4a3818, #241a09);
+  box-shadow:0 0 0 1px rgba(246,226,160,.22) inset,0 3px 8px rgba(0,0,0,.6),
+             0 0 18px rgba(255,162,43,.05)}
+.plate .pno{font-family:var(--cinzel);font-weight:900;font-size:20px;color:var(--brass-hi);
+  text-shadow:0 1px 0 #000,0 0 10px rgba(255,162,43,.4);width:24px;text-align:center}
+.plate h2{font-family:var(--serif);font-weight:900;font-size:21px;letter-spacing:4px;
+  color:#f3e6c4;text-shadow:0 1px 0 #000,0 -1px 0 rgba(255,255,255,.14);flex:1}
+.plate .pen{font-family:var(--tech);font-size:10px;letter-spacing:2px;color:var(--brass);opacity:.85}
 
 /* 法人區塊 */
-.invblock{margin-bottom:18px;padding:14px;border:1px solid var(--line);border-radius:12px;
-  background:linear-gradient(180deg,rgba(15,28,36,.6),rgba(8,14,18,.4))}
-.invhead{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;
-  border-left:3px solid var(--cyan);padding-left:10px}
-.invhead .zh{font-family:var(--serif);font-weight:700;font-size:16px;color:var(--brass-hi)}
-.invhead .en{font-family:var(--tech);font-size:10px;letter-spacing:2px;color:var(--mut)}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.invblock{margin-bottom:18px;padding:15px;border:1px solid var(--line);border-radius:12px;
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(33,240,255,.05), transparent 50%),
+    linear-gradient(180deg,rgba(13,33,41,.7),rgba(6,16,21,.5));
+  box-shadow:0 1px 0 rgba(246,226,160,.06) inset}
+.invhead{display:flex;align-items:baseline;gap:10px;margin-bottom:11px;
+  border-left:3px solid var(--cyan);padding-left:11px;
+  box-shadow:-3px 0 10px -2px rgba(33,240,255,.5)}
+.invhead .zh{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--brass-hi)}
+.invhead .en{font-family:var(--tech);font-size:9.5px;letter-spacing:2px;color:var(--mut)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:580px){.cols{grid-template-columns:1fr}}
 .ch{font-family:var(--tech);font-size:11px;font-weight:700;letter-spacing:1.5px;
-  margin-bottom:8px;padding:4px 9px;border-radius:5px;display:inline-block}
-.ch .u{opacity:.6;font-size:9px}
-.ch.buy{color:var(--magenta);background:rgba(255,42,109,.1);box-shadow:0 0 12px rgba(255,42,109,.15) inset}
-.ch.sell{color:var(--green);background:rgba(51,245,163,.1);box-shadow:0 0 12px rgba(51,245,163,.15) inset}
+  margin-bottom:8px;padding:4px 10px;border-radius:5px;display:inline-block}
+.ch .u{opacity:.55;font-size:9px}
+.ch.buy{color:var(--magenta);background:rgba(255,46,136,.12);
+  box-shadow:0 0 14px rgba(255,46,136,.2) inset,0 0 8px rgba(255,46,136,.15)}
+.ch.sell{color:var(--green);background:rgba(55,245,163,.12);
+  box-shadow:0 0 14px rgba(55,245,163,.2) inset,0 0 8px rgba(55,245,163,.12)}
 ul.rank{list-style:none}
 ul.rank li{display:flex;align-items:center;gap:9px;padding:6px 0;
-  border-bottom:1px solid rgba(26,45,54,.7);font-size:14px}
+  border-bottom:1px solid rgba(28,53,64,.7);font-size:14px}
 ul.rank li:last-child{border-bottom:none}
-.rk{font-family:var(--tech);font-weight:700;width:22px;text-align:center;flex:none;
-  color:var(--brass)}
-.code{font-family:var(--mono);color:var(--cyan);flex:none;width:52px;font-size:13px}
+.rk{font-family:var(--cinzel);font-weight:900;width:24px;text-align:center;flex:none;
+  color:var(--brass);text-shadow:0 0 8px rgba(255,162,43,.3)}
+.code{font-family:var(--mono);color:var(--cyan);flex:none;width:52px;font-size:13px;
+  text-shadow:0 0 7px rgba(33,240,255,.35)}
 .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.amt{font-family:var(--mono);font-weight:400;flex:none;font-size:14px}
-.amt.buy,.buy{color:var(--magenta)}.amt.sell,.sell{color:var(--green)}
+.amt{font-family:var(--mono);flex:none;font-size:14.5px}
+.amt.buy,.buy{color:var(--magenta);text-shadow:0 0 8px rgba(255,46,136,.35)}
+.amt.sell,.sell{color:var(--green);text-shadow:0 0 8px rgba(55,245,163,.3)}
 .tag{font-family:var(--tech);font-size:10px;color:var(--amber);margin-left:7px;
-  border:1px solid rgba(255,178,62,.4);border-radius:4px;padding:0 5px;
-  text-shadow:0 0 6px rgba(255,178,62,.4)}
+  border:1px solid rgba(255,162,43,.45);border-radius:4px;padding:0 5px;
+  text-shadow:0 0 7px rgba(255,162,43,.5)}
 .empty{color:var(--mut);font-family:var(--mono)}
 
 /* 類比儀表（簽名元素）*/
-.gauges{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.gauges{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:18px}
 @media(max-width:580px){.gauges{grid-template-columns:1fr}}
-.gauge{background:radial-gradient(120% 120% at 50% 0%,rgba(45,226,230,.06),transparent 60%),
-    linear-gradient(180deg,var(--panel2),#070d11);
-  border:1px solid var(--line);border-radius:14px;padding:12px 10px 14px;text-align:center;
-  box-shadow:0 0 0 1px rgba(199,162,75,.18) inset}
+.gauge{position:relative;text-align:center;padding:14px 10px 16px;border-radius:14px;
+  border:1px solid var(--line);
+  background:radial-gradient(120% 130% at 50% -10%,rgba(33,240,255,.08),transparent 55%),
+    linear-gradient(180deg,var(--panel2),#050d11);
+  box-shadow:0 0 0 1px rgba(246,226,160,.16) inset,0 6px 20px rgba(0,0,0,.5)}
 .gauge svg{width:100%;height:auto;display:block}
-.gtrack{fill:none;stroke:#0a1318;stroke-width:13;stroke-linecap:round}
-.gticks .gtick{stroke:var(--brass);stroke-width:1.4;opacity:.55}
-.gfill{fill:none;stroke:var(--c);stroke-width:7;stroke-linecap:round;
-  filter:drop-shadow(0 0 6px var(--c))}
-.gneedle{stroke:var(--c);stroke-width:3.4;stroke-linecap:round;
-  filter:drop-shadow(0 0 6px var(--c))}
-.ghub{fill:#1a1206;stroke:var(--brass);stroke-width:2}
+.gbezel{fill:none;stroke:url(#bezelgrad);stroke-width:8;stroke-linecap:round}
+.gtrack{fill:none;stroke:#03080b;stroke-width:14;stroke-linecap:round}
+.gticks .gtick{stroke:var(--brass-hi);stroke-width:1.5;opacity:.6}
+.gfill{fill:none;stroke:var(--c);stroke-width:8;stroke-linecap:round;
+  filter:drop-shadow(0 0 8px var(--c))}
+.gneedle{stroke:var(--c);stroke-width:3.6;stroke-linecap:round;
+  filter:drop-shadow(0 0 8px var(--c))}
+.ghub{fill:#1a1206;stroke:var(--brass);stroke-width:2.4}
 .ghub2{fill:var(--brass-hi)}
-.greadout{font-family:var(--mono);font-size:24px;color:var(--c,#fff);margin-top:-6px;
-  text-shadow:0 0 12px var(--c)}
-.gauge .greadout{color:var(--txt)}
-.glabel{font-family:var(--serif);font-weight:700;font-size:13.5px;color:var(--brass-hi);margin-top:3px}
+.greadout{font-family:var(--mono);font-size:25px;color:var(--c);margin-top:-4px;
+  text-shadow:0 0 16px var(--c),0 0 3px var(--c)}
+.glabel{font-family:var(--serif);font-weight:700;font-size:14px;color:var(--brass-hi);margin-top:4px}
 .glabel-en{font-family:var(--tech);font-size:9px;letter-spacing:2px;color:var(--mut)}
 
 /* HUD 讀數 */
-.huds{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+.huds{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-bottom:16px}
 @media(max-width:580px){.huds{grid-template-columns:1fr}}
-.hud{background:linear-gradient(180deg,rgba(15,28,36,.7),rgba(7,12,16,.5));
+.hud{background:linear-gradient(180deg,rgba(13,33,41,.8),rgba(5,13,17,.6));
   border:1px solid var(--line);border-left:3px solid var(--brass);border-radius:9px;
-  padding:10px 13px}
-.hl{font-size:12px;color:var(--mut);margin-bottom:3px;display:flex;
+  padding:11px 14px;box-shadow:-3px 0 10px -3px rgba(255,162,43,.3)}
+.hl{font-size:12px;color:var(--mut);margin-bottom:4px;display:flex;
   justify-content:space-between;align-items:baseline;gap:8px}
-.hl .he{font-family:var(--tech);font-size:8.5px;letter-spacing:1.5px;color:var(--brass);opacity:.7}
-.hv{font-family:var(--mono);font-size:18px;color:var(--txt)}
+.hl .he{font-family:var(--tech);font-size:8.5px;letter-spacing:1.5px;color:var(--brass);opacity:.75}
+.hv{font-family:var(--mono);font-size:19px;color:var(--txt)}
 .hv .hu{font-size:11px;color:var(--mut);margin-left:3px}
 .hv .d{font-size:12px;margin-left:8px}
-.d.up{color:var(--magenta)}.d.down{color:var(--green)}
+.d.up{color:var(--magenta);text-shadow:0 0 8px rgba(255,46,136,.35)}
+.d.down{color:var(--green);text-shadow:0 0 8px rgba(55,245,163,.3)}
 
 /* 圖表（黃銅相框）*/
 .charts{display:grid;gap:14px}
-.charts figure{border:1px solid var(--line);border-radius:12px;overflow:hidden;
-  box-shadow:0 0 0 1px rgba(199,162,75,.2) inset}
+.charts figure{border:2px solid transparent;border-radius:12px;overflow:hidden;
+  background:linear-gradient(#0a1820,#0a1820) padding-box,
+    linear-gradient(140deg,var(--brass-hi),var(--brass) 40%,var(--brass-lo)) border-box;
+  box-shadow:0 6px 18px rgba(0,0,0,.5)}
 .charts img{width:100%;display:block}
 
 /* 分點異動 */
 .alert{margin-bottom:16px}
-.ahead{display:flex;align-items:baseline;gap:10px;margin-bottom:9px;
-  border-left:3px solid var(--magenta);padding-left:10px}
-.ahead .zh{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--brass-hi)}
+.ahead{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;
+  border-left:3px solid var(--magenta);padding-left:11px;
+  box-shadow:-3px 0 10px -2px rgba(255,46,136,.5)}
+.ahead .zh{font-family:var(--serif);font-weight:700;font-size:16px;color:var(--brass-hi)}
 .ahead .en{font-family:var(--tech);font-size:9.5px;letter-spacing:2px;color:var(--mut)}
 ul.evt{list-style:none}
-ul.evt li{padding:9px 12px;border:1px solid var(--line);border-radius:9px;margin-bottom:7px;
-  background:linear-gradient(180deg,rgba(15,28,36,.5),rgba(7,12,16,.35));font-size:14px}
+ul.evt li{padding:10px 13px;border:1px solid var(--line);border-radius:9px;margin-bottom:7px;
+  background:linear-gradient(180deg,rgba(13,33,41,.6),rgba(5,13,17,.4));font-size:14px;
+  border-left:2px solid rgba(255,162,43,.4)}
 ul.evt li b{color:var(--txt)}
 ul.evt .sub{color:var(--mut);font-size:13px;margin-top:3px;font-family:var(--sans)}
 
-footer{color:var(--mut);font-size:12px;text-align:center;margin-top:30px;line-height:1.9;
+footer{color:var(--mut);font-size:12px;text-align:center;margin-top:32px;line-height:1.9;
   font-family:var(--mono);letter-spacing:.5px}
-footer .gline{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--brass),transparent);
-  margin:0 auto 12px}
-footer .hl-cyan{color:var(--cyan)}
+footer .gline{width:64px;height:2px;margin:0 auto 12px;
+  background:linear-gradient(90deg,transparent,var(--brass),transparent);
+  box-shadow:0 0 10px rgba(255,162,43,.4)}
+footer .hl-cyan{color:var(--cyan);text-shadow:0 0 8px rgba(33,240,255,.4)}
 
 @media(prefers-reduced-motion:reduce){.gear{animation:none}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="bezelgrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F6E2A0"/><stop offset=".5" stop-color="#C7A24B"/>
+    <stop offset="1" stop-color="#5E4720"/>
+  </linearGradient>
+  <radialGradient id="glass" cx="50%" cy="0%" r="80%">
+    <stop offset="0" stop-color="#ffffff" stop-opacity=".16"/>
+    <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient>
+</defs></svg>
+<div class="grid"></div>
+<div class="kanji l">籌碼資本</div>
+<div class="kanji r">外資投信</div>
 <svg class="gear tl" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor"><line x1="88.0" y1="50.0" x2="100.0" y2="50.0" stroke-width="9"/><line x1="82.9" y1="69.0" x2="93.3" y2="75.0" stroke-width="9"/><line x1="69.0" y1="82.9" x2="75.0" y2="93.3" stroke-width="9"/><line x1="50.0" y1="88.0" x2="50.0" y2="100.0" stroke-width="9"/><line x1="31.0" y1="82.9" x2="25.0" y2="93.3" stroke-width="9"/><line x1="17.1" y1="69.0" x2="6.7" y2="75.0" stroke-width="9"/><line x1="12.0" y1="50.0" x2="0.0" y2="50.0" stroke-width="9"/><line x1="17.1" y1="31.0" x2="6.7" y2="25.0" stroke-width="9"/><line x1="31.0" y1="17.1" x2="25.0" y2="6.7" stroke-width="9"/><line x1="50.0" y1="12.0" x2="50.0" y2="0.0" stroke-width="9"/><line x1="69.0" y1="17.1" x2="75.0" y2="6.7" stroke-width="9"/><line x1="82.9" y1="31.0" x2="93.3" y2="25.0" stroke-width="9"/><circle cx="50" cy="50" r="34" fill="none" stroke-width="7"/><circle cx="50" cy="50" r="14" fill="none" stroke-width="6"/></g></svg><svg class="gear br" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor"><line x1="88.0" y1="50.0" x2="100.0" y2="50.0" stroke-width="9"/><line x1="82.9" y1="69.0" x2="93.3" y2="75.0" stroke-width="9"/><line x1="69.0" y1="82.9" x2="75.0" y2="93.3" stroke-width="9"/><line x1="50.0" y1="88.0" x2="50.0" y2="100.0" stroke-width="9"/><line x1="31.0" y1="82.9" x2="25.0" y2="93.3" stroke-width="9"/><line x1="17.1" y1="69.0" x2="6.7" y2="75.0" stroke-width="9"/><line x1="12.0" y1="50.0" x2="0.0" y2="50.0" stroke-width="9"/><line x1="17.1" y1="31.0" x2="6.7" y2="25.0" stroke-width="9"/><line x1="31.0" y1="17.1" x2="25.0" y2="6.7" stroke-width="9"/><line x1="50.0" y1="12.0" x2="50.0" y2="0.0" stroke-width="9"/><line x1="69.0" y1="17.1" x2="75.0" y2="6.7" stroke-width="9"/><line x1="82.9" y1="31.0" x2="93.3" y2="25.0" stroke-width="9"/><circle cx="50" cy="50" r="34" fill="none" stroke-width="7"/><circle cx="50" cy="50" r="14" fill="none" stroke-width="6"/></g></svg>
+<div class="grain"></div>
 <div class="wrap">
 <div class="console">
-<div class="rivets"><span></span><span></span><span></span><span></span></div>
+<div class="cnr tl"></div><div class="cnr tr"></div>
+<div class="cnr bl"></div><div class="cnr br"></div>
+<div class="rivets"><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
 <header class="masthead">
-  <div class="brand">三籌資本 · SANCHOU CAPITAL CHIP-FLOW INSTRUMENT</div>
-  <h1 class="title">每日籌碼戰報</h1>
-  <div class="ticker"><b>2026/06/12（五）</b> <span class="sep">▟</span> 外資台指淨OI <b>-65,039</b> 口<span class="sep">▙</span> P/C <b>1.68</b><span class="sep">▟</span> 散戶小台多空 <b>+24.8%</b></div>
+  <div class="logobar">
+    <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+    <defs>
+      <linearGradient id="hbr" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#F6E2A0"/>
+        <stop offset=".42" stop-color="#C7A24B"/>
+        <stop offset="1" stop-color="#5E4720"/>
+      </linearGradient>
+      <filter id="hng" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="1.9" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <g fill="url(#hbr)" stroke="#2c2110" stroke-width="0.7">
+      <rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(0 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(30 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(60 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(90 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(120 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(150 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(180 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(210 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(240 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(270 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(300 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(330 50 50)"/>
+      <circle cx="50" cy="50" r="40.5"/>
+    </g>
+    <circle cx="50" cy="50" r="33" fill="#08131b"/>
+    <circle cx="50" cy="50" r="33" fill="none" stroke="#F6E2A0" stroke-width="0.9" opacity=".45"/>
+    <circle cx="50" cy="50" r="29" fill="none" stroke="#2c2110" stroke-width="1"/>
+    <g filter="url(#hng)">
+      <rect x="32" y="34.5" width="36" height="5.6" rx="2.8" fill="#21F0FF"/>
+      <rect x="35" y="47.2" width="30" height="5.6" rx="2.8" fill="#FF2E88"/>
+      <rect x="32" y="59.9" width="36" height="5.6" rx="2.8" fill="#F5C451"/>
+    </g></svg>
+    <div class="word">
+      <div class="brand">SANCHOU CAPITAL · 籌碼儀表</div>
+      <h1 class="title">三籌資本</h1>
+    </div>
+  </div>
+  <div class="subtitle">每日籌碼戰報 · 2026/06/12（五）</div>
+  <div class="ticker"><span class="sep">▟</span> 外資台指淨OI <b>-65,039</b> 口<span class="sep">▙</span> P/C <b>1.68</b><span class="sep">▟</span> 散戶小台多空 <b>+24.8%</b></div>
 </header>
 
 <div class="plate"><span class="pno">Ⅰ</span><h2>三大法人買賣超</h2>
@@ -289,13 +383,15 @@ footer .hl-cyan{color:var(--cyan)}
   <span class="pen">FUTURES &amp; OPTIONS</span></div>
 <div class="gauges">
     <figure class="gauge" style="--c:var(--magenta)">
-      <svg viewBox="0 0 240 150" role="img" aria-label="P/C 未平倉比 1.68">
+      <svg viewBox="0 0 240 156" role="img" aria-label="P/C 未平倉比 1.68">
+        <path d="M 20.0 122.0 A 100 100 0 0 1 220.0 122.0" class="gbezel"/>
         <path d="M 28.0 122.0 A 92 92 0 0 1 212.0 122.0" class="gtrack"/>
         <g class="gticks"><line x1="26.0" y1="122.0" x2="39.0" y2="122.0" class="gtick"/><line x1="30.6" y1="93.0" x2="38.2" y2="95.4" class="gtick"/><line x1="44.0" y1="66.7" x2="50.4" y2="71.5" class="gtick"/><line x1="64.7" y1="46.0" x2="69.5" y2="52.4" class="gtick"/><line x1="91.0" y1="32.6" x2="93.4" y2="40.2" class="gtick"/><line x1="120.0" y1="28.0" x2="120.0" y2="41.0" class="gtick"/><line x1="149.0" y1="32.6" x2="146.6" y2="40.2" class="gtick"/><line x1="175.3" y1="46.0" x2="170.5" y2="52.4" class="gtick"/><line x1="196.0" y1="66.7" x2="189.6" y2="71.5" class="gtick"/><line x1="209.4" y1="93.0" x2="201.8" y2="95.4" class="gtick"/><line x1="214.0" y1="122.0" x2="201.0" y2="122.0" class="gtick"/></g>
         <path d="M 59.8 52.5 A 92 92 0 0 1 143.8 33.1" class="gfill"/>
+        <ellipse cx="120" cy="84" rx="74" ry="34" fill="url(#glass)"/>
         <line x1="120" y1="122" x2="139.2" y2="50.5" class="gneedle"/>
-        <circle cx="120" cy="122" r="9" class="ghub"/>
-        <circle cx="120" cy="122" r="3.4" class="ghub2"/>
+        <circle cx="120" cy="122" r="10" class="ghub"/>
+        <circle cx="120" cy="122" r="3.6" class="ghub2"/>
       </svg>
       <figcaption>
         <div class="greadout">1.68</div>
@@ -304,13 +400,15 @@ footer .hl-cyan{color:var(--cyan)}
       </figcaption>
     </figure>
     <figure class="gauge" style="--c:var(--magenta)">
-      <svg viewBox="0 0 240 150" role="img" aria-label="散戶小台多空比 +24.8%">
+      <svg viewBox="0 0 240 156" role="img" aria-label="散戶小台多空比 +24.8%">
+        <path d="M 20.0 122.0 A 100 100 0 0 1 220.0 122.0" class="gbezel"/>
         <path d="M 28.0 122.0 A 92 92 0 0 1 212.0 122.0" class="gtrack"/>
         <g class="gticks"><line x1="26.0" y1="122.0" x2="39.0" y2="122.0" class="gtick"/><line x1="30.6" y1="93.0" x2="38.2" y2="95.4" class="gtick"/><line x1="44.0" y1="66.7" x2="50.4" y2="71.5" class="gtick"/><line x1="64.7" y1="46.0" x2="69.5" y2="52.4" class="gtick"/><line x1="91.0" y1="32.6" x2="93.4" y2="40.2" class="gtick"/><line x1="120.0" y1="28.0" x2="120.0" y2="41.0" class="gtick"/><line x1="149.0" y1="32.6" x2="146.6" y2="40.2" class="gtick"/><line x1="175.3" y1="46.0" x2="170.5" y2="52.4" class="gtick"/><line x1="196.0" y1="66.7" x2="189.6" y2="71.5" class="gtick"/><line x1="209.4" y1="93.0" x2="201.8" y2="95.4" class="gtick"/><line x1="214.0" y1="122.0" x2="201.0" y2="122.0" class="gtick"/></g>
         <path d="M 120.0 30.0 A 92 92 0 0 1 175.6 48.7" class="gfill"/>
+        <ellipse cx="120" cy="84" rx="74" ry="34" fill="url(#glass)"/>
         <line x1="120" y1="122" x2="164.7" y2="63.0" class="gneedle"/>
-        <circle cx="120" cy="122" r="9" class="ghub"/>
-        <circle cx="120" cy="122" r="3.4" class="ghub2"/>
+        <circle cx="120" cy="122" r="10" class="ghub"/>
+        <circle cx="120" cy="122" r="3.6" class="ghub2"/>
       </svg>
       <figcaption>
         <div class="greadout">+24.8%</div>
@@ -319,13 +417,15 @@ footer .hl-cyan{color:var(--cyan)}
       </figcaption>
     </figure>
     <figure class="gauge" style="--c:var(--magenta)">
-      <svg viewBox="0 0 240 150" role="img" aria-label="散戶微台多空比 +32.1%">
+      <svg viewBox="0 0 240 156" role="img" aria-label="散戶微台多空比 +32.1%">
+        <path d="M 20.0 122.0 A 100 100 0 0 1 220.0 122.0" class="gbezel"/>
         <path d="M 28.0 122.0 A 92 92 0 0 1 212.0 122.0" class="gtrack"/>
         <g class="gticks"><line x1="26.0" y1="122.0" x2="39.0" y2="122.0" class="gtick"/><line x1="30.6" y1="93.0" x2="38.2" y2="95.4" class="gtick"/><line x1="44.0" y1="66.7" x2="50.4" y2="71.5" class="gtick"/><line x1="64.7" y1="46.0" x2="69.5" y2="52.4" class="gtick"/><line x1="91.0" y1="32.6" x2="93.4" y2="40.2" class="gtick"/><line x1="120.0" y1="28.0" x2="120.0" y2="41.0" class="gtick"/><line x1="149.0" y1="32.6" x2="146.6" y2="40.2" class="gtick"/><line x1="175.3" y1="46.0" x2="170.5" y2="52.4" class="gtick"/><line x1="196.0" y1="66.7" x2="189.6" y2="71.5" class="gtick"/><line x1="209.4" y1="93.0" x2="201.8" y2="95.4" class="gtick"/><line x1="214.0" y1="122.0" x2="201.0" y2="122.0" class="gtick"/></g>
         <path d="M 120.0 30.0 A 92 92 0 0 1 188.5 60.6" class="gfill"/>
+        <ellipse cx="120" cy="84" rx="74" ry="34" fill="url(#glass)"/>
         <line x1="120" y1="122" x2="175.1" y2="72.6" class="gneedle"/>
-        <circle cx="120" cy="122" r="9" class="ghub"/>
-        <circle cx="120" cy="122" r="3.4" class="ghub2"/>
+        <circle cx="120" cy="122" r="10" class="ghub"/>
+        <circle cx="120" cy="122" r="3.6" class="ghub2"/>
       </svg>
       <figcaption>
         <div class="greadout">+32.1%</div>
@@ -362,7 +462,7 @@ footer .hl-cyan{color:var(--cyan)}
 <footer>
   <div class="gline"></div>
   <span class="hl-cyan">⚙ 三籌資本自動產製</span> · 每交易日 18:00 更新<br>
-  本頁僅供參考，不構成投資建議 · 產製 2026/06/13 17:08
+  本頁僅供參考，不構成投資建議 · 產製 2026/06/13 18:21
 </footer>
 </div>
 </div>
