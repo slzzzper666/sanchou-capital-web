@@ -7,464 +7,295 @@
 <title>三籌資本</title>
 <link rel="icon" type="image/svg+xml" href="logo.svg">
 <meta property="og:title" content="三籌資本 ｜ 每日籌碼戰報 2026/06/12（五）">
-<meta property="og:description" content="台股三大法人 × 期貨籌碼 × 主力分點 — 黃銅霓虹籌碼儀表">
+<meta property="og:description" content="台股三大法人 × 期貨籌碼 × 主力分點 每日彙整">
 <meta property="og:image" content="logo.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Cinzel:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --void:#04080B; --deep:#081820; --panel:#0a1820; --panel2:#0d2129; --line:#1c3540;
-  --brass:#C7A24B; --brass-hi:#F6E2A0; --brass-lo:#5E4720; --copper:#B87333;
-  --patina:#2E8C7E;
-  --cyan:#21F0FF; --magenta:#FF2E88; --green:#37F5A3; --amber:#FFA22B; --gold:#F5C451;
-  --txt:#EAF7F7; --mut:#7FA6AC;
-  --serif:"Noto Serif TC",serif; --sans:"Noto Sans TC",sans-serif;
-  --tech:"Orbitron",sans-serif; --mono:"Share Tech Mono",monospace;
-  --cinzel:"Cinzel",serif;
+  --bg:#0A0A0B; --bg2:#101013; --bg3:#16161A; --line:rgba(255,255,255,.08);
+  --line2:rgba(255,255,255,.13);
+  --txt:#F5F5F6; --txt2:#A1A1AA; --txt3:#71717A;
+  --buy:#FF6B6B; --sell:#34D399; --accent:#8B8CF8;
+  --disp:"Space Grotesk",sans-serif; --sans:"Noto Sans TC","Space Grotesk",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--void); color:var(--txt); font-family:var(--sans);
-  line-height:1.6; -webkit-font-smoothing:antialiased; position:relative;
-  min-height:100vh; overflow-x:hidden;
-  background-image:
-    radial-gradient(1100px 640px at 18% -8%, rgba(33,240,255,.16), transparent 60%),
-    radial-gradient(1000px 620px at 88% 6%, rgba(255,46,136,.14), transparent 58%),
-    radial-gradient(900px 700px at 50% 116%, rgba(255,162,43,.12), transparent 60%),
-    linear-gradient(180deg, #07171f 0%, #051016 42%, var(--void) 100%);
-}
-/* 發光透視網格地板（synthwave）*/
-.grid{position:fixed;left:-20%;right:-20%;bottom:0;height:46vh;z-index:0;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(33,240,255,.55) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(33,240,255,.45) 1px, transparent 1px);
-  background-size:64px 46px, 64px 46px;
-  transform:perspective(330px) rotateX(74deg); transform-origin:bottom center;
-  -webkit-mask-image:linear-gradient(to top, #000 0%, transparent 86%);
-  mask-image:linear-gradient(to top, #000 0%, transparent 86%); opacity:.5}
-/* 裝飾性漢字霓虹（邊欄）*/
-.kanji{position:fixed;top:6vh;z-index:0;pointer-events:none;writing-mode:vertical-rl;
-  font-family:var(--serif);font-weight:900;font-size:88px;letter-spacing:18px;
-  color:transparent;-webkit-text-stroke:1px rgba(33,240,255,.16);
-  text-shadow:0 0 30px rgba(33,240,255,.07);user-select:none}
-.kanji.l{left:8px}.kanji.r{right:8px;-webkit-text-stroke:1px rgba(255,46,136,.16);
-  text-shadow:0 0 30px rgba(255,46,136,.07)}
-@media(max-width:1180px){.kanji{display:none}}
-/* 顆粒噪點 + 掃描線 + 暈影覆蓋 */
-.grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px 160px}
-body::after{
-  content:""; position:fixed; inset:0; pointer-events:none; z-index:61;
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.65;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum";position:relative;
+  overflow-x:hidden}
+/* 唯一裝飾：頂部柔和漸層光暈 */
+body::before{content:"";position:fixed;top:-30vh;left:50%;transform:translateX(-50%);
+  width:130vw;height:80vh;z-index:0;pointer-events:none;filter:blur(80px);opacity:.5;
   background:
-    repeating-linear-gradient(0deg, rgba(0,0,0,.16) 0 1px, transparent 1px 3px),
-    radial-gradient(130% 100% at 50% 46%, transparent 58%, rgba(0,3,5,.7) 100%);
-  mix-blend-mode:multiply;
-}
-.wrap{max-width:900px;margin:0 auto;padding:28px 15px 72px;position:relative;z-index:2}
+    radial-gradient(38% 60% at 32% 50%, rgba(139,140,248,.22), transparent 70%),
+    radial-gradient(34% 56% at 62% 38%, rgba(52,211,153,.12), transparent 70%),
+    radial-gradient(40% 60% at 78% 60%, rgba(255,107,107,.12), transparent 70%)}
+.wrap{max-width:780px;margin:0 auto;padding:64px 22px 96px;position:relative;z-index:1}
 
-/* 黃銅機殼框架（磨砂銅紋理 + 內陰影）*/
-.console{
-  position:relative; border:4px solid transparent; border-radius:18px;
-  background:
-    linear-gradient(180deg, rgba(12,28,36,.94), rgba(6,16,21,.96)) padding-box,
-    repeating-linear-gradient(96deg, var(--brass-hi) 0 2px, var(--brass) 3px 6px,
-      var(--brass-lo) 7px 11px, var(--brass) 12px 15px) border-box;
-  box-shadow:0 0 0 1px #000 inset, 0 0 0 5px rgba(0,0,0,.5),
-             0 26px 80px rgba(0,0,0,.75),
-             0 0 60px rgba(33,240,255,.06);
-  padding:26px 22px 32px;
-}
-/* 角落 L 形黃銅護角 */
-.console>.cnr{position:absolute;width:34px;height:34px;border:3px solid var(--brass);
-  filter:drop-shadow(0 0 4px rgba(0,0,0,.6));z-index:3}
-.cnr.tl{top:8px;left:8px;border-right:0;border-bottom:0;border-top-left-radius:10px}
-.cnr.tr{top:8px;right:8px;border-left:0;border-bottom:0;border-top-right-radius:10px}
-.cnr.bl{bottom:8px;left:8px;border-right:0;border-top:0;border-bottom-left-radius:10px}
-.cnr.br{bottom:8px;right:8px;border-left:0;border-top:0;border-bottom-right-radius:10px}
-/* 鉚釘列 */
-.rivets{position:absolute;inset:0;pointer-events:none;border-radius:14px}
-.rivets span{position:absolute;width:9px;height:9px;border-radius:50%;
-  background:radial-gradient(circle at 34% 28%,var(--brass-hi),var(--brass) 45%,#1c1408);
-  box-shadow:0 0 0 1px #000,0 1px 2px rgba(0,0,0,.7)}
-.rivets span:nth-child(1){top:13px;left:50px}.rivets span:nth-child(2){top:13px;right:50px}
-.rivets span:nth-child(3){bottom:13px;left:50px}.rivets span:nth-child(4){bottom:13px;right:50px}
-.rivets span:nth-child(5){top:50%;left:11px;margin-top:-4px}
-.rivets span:nth-child(6){top:50%;right:11px;margin-top:-4px}
+/* 抬頭 */
+.masthead{margin-bottom:64px}
+.logobar{display:flex;align-items:center;gap:13px;margin-bottom:30px}
+.logo{width:38px;height:38px;border-radius:11px;flex:none}
+.logobar .wm{font-family:var(--sans);font-weight:700;font-size:19px;letter-spacing:.5px;color:var(--txt)}
+.kicker{font-family:var(--disp);font-weight:500;font-size:12px;letter-spacing:3.5px;
+  text-transform:uppercase;color:var(--txt3);margin-bottom:18px}
+h1.head{font-family:var(--sans);font-weight:900;letter-spacing:-.5px;
+  font-size:clamp(40px,8.5vw,68px);line-height:1.04;color:var(--txt)}
+.head .sub{display:block;font-size:clamp(18px,3vw,24px);font-weight:500;color:var(--txt2);
+  margin-top:14px;letter-spacing:0}
+.lede{margin-top:24px;font-size:15px;color:var(--txt2);max-width:48ch;line-height:1.75}
+.lede b{color:var(--txt);font-weight:600}
 
-/* 角落齒輪（背景）*/
-.gear{position:fixed;width:180px;height:180px;color:rgba(199,162,75,.12);z-index:0;
-  animation:spin 90s linear infinite;filter:drop-shadow(0 0 8px rgba(255,162,43,.06))}
-.gear.tl{top:-54px;left:-54px}
-.gear.br{bottom:-58px;right:-58px;animation-direction:reverse;width:230px;height:230px}
-@keyframes spin{to{transform:rotate(360deg)}}
+/* 區段 */
+section{margin-top:58px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  padding-bottom:16px;margin-bottom:24px;border-bottom:1px solid var(--line)}
+.sec-h h2{font-family:var(--sans);font-weight:700;font-size:23px;letter-spacing:.3px;color:var(--txt)}
+.sec-h .en{font-family:var(--disp);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--txt3);white-space:nowrap}
 
-/* 抬頭 + LOGO */
-.masthead{text-align:center;padding:6px 0 20px;margin-bottom:20px;position:relative}
-.masthead::after{content:"";position:absolute;left:8%;right:8%;bottom:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--brass) 20%,var(--cyan) 50%,var(--brass) 80%,transparent);
-  box-shadow:0 0 12px rgba(33,240,255,.4)}
-.logobar{display:flex;align-items:center;justify-content:center;gap:16px}
-.logo{width:74px;height:74px;flex:none;filter:drop-shadow(0 0 10px rgba(255,162,43,.35))}
-.word{text-align:left}
-.brand{font-family:var(--tech);font-weight:700;letter-spacing:4px;font-size:10.5px;
-  color:var(--cyan);text-shadow:0 0 10px rgba(33,240,255,.6)}
-.title{font-family:var(--serif);font-weight:900;font-size:clamp(34px,9vw,58px);
-  letter-spacing:7px;line-height:1.02;margin:2px 0;
-  background:linear-gradient(180deg,#fff5d6,var(--brass-hi) 30%,var(--brass) 60%,var(--brass-lo));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 1px 0 #000) drop-shadow(0 0 22px rgba(255,162,43,.3))}
-.subtitle{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:6px;
-  color:var(--txt);margin-top:10px;
-  text-shadow:0 0 10px rgba(33,240,255,.35),0 0 1px var(--cyan)}
-.ticker{font-family:var(--mono);font-size:12.5px;color:var(--mut);margin-top:12px;
-  letter-spacing:1px;display:flex;flex-wrap:wrap;gap:5px 12px;justify-content:center}
-.ticker b{color:var(--cyan);text-shadow:0 0 9px rgba(33,240,255,.55)}
-.ticker .sep{color:var(--amber);text-shadow:0 0 8px rgba(255,162,43,.5)}
-@media(max-width:480px){.logobar{flex-direction:column;gap:8px}.word{text-align:center}}
+/* 卡片通用 */
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:22px 24px}
 
-/* 區段刻字黃銅板 */
-.plate{display:flex;align-items:center;gap:13px;margin:32px 0 16px;padding:11px 16px;
-  border-radius:9px;position:relative;border:1px solid #000;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.06), transparent 40%),
-    repeating-linear-gradient(90deg, var(--brass-lo) 0 3px, #3a2c12 4px 7px),
-    linear-gradient(180deg, #4a3818, #241a09);
-  box-shadow:0 0 0 1px rgba(246,226,160,.22) inset,0 3px 8px rgba(0,0,0,.6),
-             0 0 18px rgba(255,162,43,.05)}
-.plate .pno{font-family:var(--cinzel);font-weight:900;font-size:20px;color:var(--brass-hi);
-  text-shadow:0 1px 0 #000,0 0 10px rgba(255,162,43,.4);width:24px;text-align:center}
-.plate h2{font-family:var(--serif);font-weight:900;font-size:21px;letter-spacing:4px;
-  color:#f3e6c4;text-shadow:0 1px 0 #000,0 -1px 0 rgba(255,255,255,.14);flex:1}
-.plate .pen{font-family:var(--tech);font-size:10px;letter-spacing:2px;color:var(--brass);opacity:.85}
-
-/* 法人區塊 */
-.invblock{margin-bottom:18px;padding:15px;border:1px solid var(--line);border-radius:12px;
-  background:
-    radial-gradient(120% 80% at 0% 0%, rgba(33,240,255,.05), transparent 50%),
-    linear-gradient(180deg,rgba(13,33,41,.7),rgba(6,16,21,.5));
-  box-shadow:0 1px 0 rgba(246,226,160,.06) inset}
-.invhead{display:flex;align-items:baseline;gap:10px;margin-bottom:11px;
-  border-left:3px solid var(--cyan);padding-left:11px;
-  box-shadow:-3px 0 10px -2px rgba(33,240,255,.5)}
-.invhead .zh{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--brass-hi)}
-.invhead .en{font-family:var(--tech);font-size:9.5px;letter-spacing:2px;color:var(--mut)}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:580px){.cols{grid-template-columns:1fr}}
-.ch{font-family:var(--tech);font-size:11px;font-weight:700;letter-spacing:1.5px;
-  margin-bottom:8px;padding:4px 10px;border-radius:5px;display:inline-block}
-.ch .u{opacity:.55;font-size:9px}
-.ch.buy{color:var(--magenta);background:rgba(255,46,136,.12);
-  box-shadow:0 0 14px rgba(255,46,136,.2) inset,0 0 8px rgba(255,46,136,.15)}
-.ch.sell{color:var(--green);background:rgba(55,245,163,.12);
-  box-shadow:0 0 14px rgba(55,245,163,.2) inset,0 0 8px rgba(55,245,163,.12)}
+/* 法人 */
+.invblock{background:var(--bg2);border:1px solid var(--line);border-radius:18px;
+  padding:20px 22px;margin-bottom:14px}
+.invhead{display:flex;align-items:baseline;gap:11px;margin-bottom:14px}
+.invhead .zh{font-weight:700;font-size:16px;color:var(--txt)}
+.invhead .en{font-family:var(--disp);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--txt3)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px}
+@media(max-width:600px){.cols{grid-template-columns:1fr;gap:18px}}
+.ch{font-size:12px;font-weight:600;color:var(--txt3);letter-spacing:1px;margin-bottom:10px;
+  display:flex;justify-content:space-between;align-items:baseline}
+.ch .u{font-size:10.5px;color:var(--txt3);font-weight:400}
 ul.rank{list-style:none}
-ul.rank li{display:flex;align-items:center;gap:9px;padding:6px 0;
-  border-bottom:1px solid rgba(28,53,64,.7);font-size:14px}
-ul.rank li:last-child{border-bottom:none}
-.rk{font-family:var(--cinzel);font-weight:900;width:24px;text-align:center;flex:none;
-  color:var(--brass);text-shadow:0 0 8px rgba(255,162,43,.3)}
-.code{font-family:var(--mono);color:var(--cyan);flex:none;width:52px;font-size:13px;
-  text-shadow:0 0 7px rgba(33,240,255,.35)}
-.nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.amt{font-family:var(--mono);flex:none;font-size:14.5px}
-.amt.buy,.buy{color:var(--magenta);text-shadow:0 0 8px rgba(255,46,136,.35)}
-.amt.sell,.sell{color:var(--green);text-shadow:0 0 8px rgba(55,245,163,.3)}
-.tag{font-family:var(--tech);font-size:10px;color:var(--amber);margin-left:7px;
-  border:1px solid rgba(255,162,43,.45);border-radius:4px;padding:0 5px;
-  text-shadow:0 0 7px rgba(255,162,43,.5)}
-.empty{color:var(--mut);font-family:var(--mono)}
+ul.rank li{display:flex;align-items:center;gap:11px;padding:7px 0;font-size:14.5px}
+ul.rank li+li{border-top:1px solid var(--line)}
+.rk{font-family:var(--disp);font-weight:500;width:16px;text-align:center;flex:none;color:var(--txt3);font-size:13px}
+.code{font-family:var(--disp);color:var(--txt2);flex:none;width:46px;font-size:13.5px;font-weight:500}
+.nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--txt)}
+.amt{font-family:var(--disp);font-weight:600;flex:none;font-size:14.5px}
+.amt.buy,.buy{color:var(--buy)}.amt.sell,.sell{color:var(--sell)}
+.tag{font-size:11px;color:var(--accent);margin-left:8px;font-weight:500;
+  background:rgba(139,140,248,.12);border-radius:5px;padding:1px 7px}
+.empty{color:var(--txt3)}
 
-/* 類比儀表（簽名元素）*/
-.gauges{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:18px}
-@media(max-width:580px){.gauges{grid-template-columns:1fr}}
-.gauge{position:relative;text-align:center;padding:14px 10px 16px;border-radius:14px;
-  border:1px solid var(--line);
-  background:radial-gradient(120% 130% at 50% -10%,rgba(33,240,255,.08),transparent 55%),
-    linear-gradient(180deg,var(--panel2),#050d11);
-  box-shadow:0 0 0 1px rgba(246,226,160,.16) inset,0 6px 20px rgba(0,0,0,.5)}
-.gauge svg{width:100%;height:auto;display:block}
-.gbezel{fill:none;stroke:url(#bezelgrad);stroke-width:8;stroke-linecap:round}
-.gtrack{fill:none;stroke:#03080b;stroke-width:14;stroke-linecap:round}
-.gticks .gtick{stroke:var(--brass-hi);stroke-width:1.5;opacity:.6}
-.gfill{fill:none;stroke:var(--c);stroke-width:8;stroke-linecap:round;
-  filter:drop-shadow(0 0 8px var(--c))}
-.gneedle{stroke:var(--c);stroke-width:3.6;stroke-linecap:round;
-  filter:drop-shadow(0 0 8px var(--c))}
-.ghub{fill:#1a1206;stroke:var(--brass);stroke-width:2.4}
-.ghub2{fill:var(--brass-hi)}
-.greadout{font-family:var(--mono);font-size:25px;color:var(--c);margin-top:-4px;
-  text-shadow:0 0 16px var(--c),0 0 3px var(--c)}
-.glabel{font-family:var(--serif);font-weight:700;font-size:14px;color:var(--brass-hi);margin-top:4px}
-.glabel-en{font-family:var(--tech);font-size:9px;letter-spacing:2px;color:var(--mut)}
+/* 量表 */
+.meters{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
+@media(max-width:600px){.meters{grid-template-columns:1fr}}
+.meter{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:22px 22px 20px}
+.m-read{font-family:var(--disp);font-weight:600;font-size:34px;letter-spacing:-.5px;color:var(--txt)}
+.m-read.hi{color:var(--txt)}
+.m-bar{position:relative;height:5px;border-radius:3px;background:var(--bg3);margin:18px 0 14px}
+.m-fill{position:absolute;top:0;height:5px;border-radius:3px;background:var(--accent);opacity:.85}
+.m-neutral{position:absolute;top:-3px;width:2px;height:11px;border-radius:1px;
+  background:var(--txt3);transform:translateX(-1px)}
+.m-dot{position:absolute;top:50%;width:11px;height:11px;border-radius:50%;background:var(--txt);
+  transform:translate(-50%,-50%);box-shadow:0 0 0 3px var(--bg2)}
+.m-label{font-size:14px;color:var(--txt);font-weight:500}
+.m-sub{font-size:12px;color:var(--txt3);margin-top:3px}
 
-/* HUD 讀數 */
-.huds{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-bottom:16px}
-@media(max-width:580px){.huds{grid-template-columns:1fr}}
-.hud{background:linear-gradient(180deg,rgba(13,33,41,.8),rgba(5,13,17,.6));
-  border:1px solid var(--line);border-left:3px solid var(--brass);border-radius:9px;
-  padding:11px 14px;box-shadow:-3px 0 10px -3px rgba(255,162,43,.3)}
-.hl{font-size:12px;color:var(--mut);margin-bottom:4px;display:flex;
-  justify-content:space-between;align-items:baseline;gap:8px}
-.hl .he{font-family:var(--tech);font-size:8.5px;letter-spacing:1.5px;color:var(--brass);opacity:.75}
-.hv{font-family:var(--mono);font-size:19px;color:var(--txt)}
-.hv .hu{font-size:11px;color:var(--mut);margin-left:3px}
-.hv .d{font-size:12px;margin-left:8px}
-.d.up{color:var(--magenta);text-shadow:0 0 8px rgba(255,46,136,.35)}
-.d.down{color:var(--green);text-shadow:0 0 8px rgba(55,245,163,.3)}
+/* 期貨 stat */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:16px}
+@media(max-width:600px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--bg2);padding:16px 20px}
+.stats .stat:last-child:nth-child(odd){grid-column:1 / -1}
+.sl{font-size:12.5px;color:var(--txt2);margin-bottom:5px}
+.sv{font-family:var(--disp);font-size:21px;font-weight:600;color:var(--txt);letter-spacing:-.3px}
+.sv .su{font-size:12px;color:var(--txt3);margin-left:4px;font-weight:400}
+.sv .d{font-size:13px;margin-left:9px;font-weight:500}
+.d.up{color:var(--buy)}.d.down{color:var(--sell)}
 
-/* 圖表（黃銅相框）*/
-.charts{display:grid;gap:14px}
-.charts figure{border:2px solid transparent;border-radius:12px;overflow:hidden;
-  background:linear-gradient(#0a1820,#0a1820) padding-box,
-    linear-gradient(140deg,var(--brass-hi),var(--brass) 40%,var(--brass-lo)) border-box;
-  box-shadow:0 6px 18px rgba(0,0,0,.5)}
+/* 圖表 */
+.charts{display:grid;gap:14px;margin-top:4px}
+.charts figure{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg2)}
 .charts img{width:100%;display:block}
 
-/* 分點異動 */
-.alert{margin-bottom:16px}
-.ahead{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;
-  border-left:3px solid var(--magenta);padding-left:11px;
-  box-shadow:-3px 0 10px -2px rgba(255,46,136,.5)}
-.ahead .zh{font-family:var(--serif);font-weight:700;font-size:16px;color:var(--brass-hi)}
-.ahead .en{font-family:var(--tech);font-size:9.5px;letter-spacing:2px;color:var(--mut)}
-ul.evt{list-style:none}
-ul.evt li{padding:10px 13px;border:1px solid var(--line);border-radius:9px;margin-bottom:7px;
-  background:linear-gradient(180deg,rgba(13,33,41,.6),rgba(5,13,17,.4));font-size:14px;
-  border-left:2px solid rgba(255,162,43,.4)}
-ul.evt li b{color:var(--txt)}
-ul.evt .sub{color:var(--mut);font-size:13px;margin-top:3px;font-family:var(--sans)}
+/* 分點 */
+.alert{margin-bottom:14px}
+.ahead{display:flex;align-items:baseline;gap:11px;margin-bottom:12px}
+.ahead .zh{font-weight:700;font-size:16px;color:var(--txt)}
+.ahead .en{font-family:var(--disp);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--txt3)}
+ul.evt{list-style:none;display:grid;gap:10px}
+ul.evt li{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:13px 17px;font-size:14px}
+.ev-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ev-h b{color:var(--txt);font-weight:600}
+.ev-k{font-family:var(--disp);font-size:12.5px;color:var(--txt2);font-weight:500;flex:none}
+ul.evt .sub{color:var(--txt2);font-size:13px;margin-top:5px}
 
-footer{color:var(--mut);font-size:12px;text-align:center;margin-top:32px;line-height:1.9;
-  font-family:var(--mono);letter-spacing:.5px}
-footer .gline{width:64px;height:2px;margin:0 auto 12px;
-  background:linear-gradient(90deg,transparent,var(--brass),transparent);
-  box-shadow:0 0 10px rgba(255,162,43,.4)}
-footer .hl-cyan{color:var(--cyan);text-shadow:0 0 8px rgba(33,240,255,.4)}
+footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);
+  color:var(--txt3);font-size:12.5px;line-height:1.9}
+footer b{color:var(--txt2);font-weight:600}
 
-@media(prefers-reduced-motion:reduce){.gear{animation:none}}
+/* 入場淡入 */
+@media(prefers-reduced-motion:no-preference){
+  .masthead,section{animation:rise .7s cubic-bezier(.22,.61,.36,1) both}
+  section:nth-of-type(2){animation-delay:.06s}
+  section:nth-of-type(3){animation-delay:.12s}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <linearGradient id="bezelgrad" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#F6E2A0"/><stop offset=".5" stop-color="#C7A24B"/>
-    <stop offset="1" stop-color="#5E4720"/>
-  </linearGradient>
-  <radialGradient id="glass" cx="50%" cy="0%" r="80%">
-    <stop offset="0" stop-color="#ffffff" stop-opacity=".16"/>
-    <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
-  </radialGradient>
-</defs></svg>
-<div class="grid"></div>
-<div class="kanji l">籌碼資本</div>
-<div class="kanji r">外資投信</div>
-<svg class="gear tl" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor"><line x1="88.0" y1="50.0" x2="100.0" y2="50.0" stroke-width="9"/><line x1="82.9" y1="69.0" x2="93.3" y2="75.0" stroke-width="9"/><line x1="69.0" y1="82.9" x2="75.0" y2="93.3" stroke-width="9"/><line x1="50.0" y1="88.0" x2="50.0" y2="100.0" stroke-width="9"/><line x1="31.0" y1="82.9" x2="25.0" y2="93.3" stroke-width="9"/><line x1="17.1" y1="69.0" x2="6.7" y2="75.0" stroke-width="9"/><line x1="12.0" y1="50.0" x2="0.0" y2="50.0" stroke-width="9"/><line x1="17.1" y1="31.0" x2="6.7" y2="25.0" stroke-width="9"/><line x1="31.0" y1="17.1" x2="25.0" y2="6.7" stroke-width="9"/><line x1="50.0" y1="12.0" x2="50.0" y2="0.0" stroke-width="9"/><line x1="69.0" y1="17.1" x2="75.0" y2="6.7" stroke-width="9"/><line x1="82.9" y1="31.0" x2="93.3" y2="25.0" stroke-width="9"/><circle cx="50" cy="50" r="34" fill="none" stroke-width="7"/><circle cx="50" cy="50" r="14" fill="none" stroke-width="6"/></g></svg><svg class="gear br" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor"><line x1="88.0" y1="50.0" x2="100.0" y2="50.0" stroke-width="9"/><line x1="82.9" y1="69.0" x2="93.3" y2="75.0" stroke-width="9"/><line x1="69.0" y1="82.9" x2="75.0" y2="93.3" stroke-width="9"/><line x1="50.0" y1="88.0" x2="50.0" y2="100.0" stroke-width="9"/><line x1="31.0" y1="82.9" x2="25.0" y2="93.3" stroke-width="9"/><line x1="17.1" y1="69.0" x2="6.7" y2="75.0" stroke-width="9"/><line x1="12.0" y1="50.0" x2="0.0" y2="50.0" stroke-width="9"/><line x1="17.1" y1="31.0" x2="6.7" y2="25.0" stroke-width="9"/><line x1="31.0" y1="17.1" x2="25.0" y2="6.7" stroke-width="9"/><line x1="50.0" y1="12.0" x2="50.0" y2="0.0" stroke-width="9"/><line x1="69.0" y1="17.1" x2="75.0" y2="6.7" stroke-width="9"/><line x1="82.9" y1="31.0" x2="93.3" y2="25.0" stroke-width="9"/><circle cx="50" cy="50" r="34" fill="none" stroke-width="7"/><circle cx="50" cy="50" r="14" fill="none" stroke-width="6"/></g></svg>
-<div class="grain"></div>
 <div class="wrap">
-<div class="console">
-<div class="cnr tl"></div><div class="cnr tr"></div>
-<div class="cnr bl"></div><div class="cnr br"></div>
-<div class="rivets"><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
 <header class="masthead">
   <div class="logobar">
     <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
-    <defs>
-      <linearGradient id="hbr" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#F6E2A0"/>
-        <stop offset=".42" stop-color="#C7A24B"/>
-        <stop offset="1" stop-color="#5E4720"/>
-      </linearGradient>
-      <filter id="hng" x="-60%" y="-60%" width="220%" height="220%">
-        <feGaussianBlur stdDeviation="1.9" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-    </defs>
-    <g fill="url(#hbr)" stroke="#2c2110" stroke-width="0.7">
-      <rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(0 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(30 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(60 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(90 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(120 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(150 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(180 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(210 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(240 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(270 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(300 50 50)"/><rect x="46" y="1.5" width="8" height="15" rx="2.2" transform="rotate(330 50 50)"/>
-      <circle cx="50" cy="50" r="40.5"/>
-    </g>
-    <circle cx="50" cy="50" r="33" fill="#08131b"/>
-    <circle cx="50" cy="50" r="33" fill="none" stroke="#F6E2A0" stroke-width="0.9" opacity=".45"/>
-    <circle cx="50" cy="50" r="29" fill="none" stroke="#2c2110" stroke-width="1"/>
-    <g filter="url(#hng)">
-      <rect x="32" y="34.5" width="36" height="5.6" rx="2.8" fill="#21F0FF"/>
-      <rect x="35" y="47.2" width="30" height="5.6" rx="2.8" fill="#FF2E88"/>
-      <rect x="32" y="59.9" width="36" height="5.6" rx="2.8" fill="#F5C451"/>
-    </g></svg>
-    <div class="word">
-      <div class="brand">SANCHOU CAPITAL · 籌碼儀表</div>
-      <h1 class="title">三籌資本</h1>
-    </div>
+    <defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#202026"/><stop offset="1" stop-color="#0d0d10"/>
+    </linearGradient></defs>
+    <rect x="5" y="5" width="90" height="90" rx="26" fill="url(#lg)"
+      stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
+    <rect x="27" y="32" width="46" height="8" rx="4" fill="#F4F4F5"/>
+    <rect x="27" y="46" width="36" height="8" rx="4" fill="#F4F4F5"/>
+    <rect x="27" y="60" width="28" height="8" rx="4" fill="#8B8CF8"/></svg>
+    <span class="wm">三籌資本</span>
   </div>
-  <div class="subtitle">每日籌碼戰報 · 2026/06/12（五）</div>
-  <div class="ticker"><span class="sep">▟</span> 外資台指淨OI <b>-65,039</b> 口<span class="sep">▙</span> P/C <b>1.68</b><span class="sep">▟</span> 散戶小台多空 <b>+24.8%</b></div>
+  <div class="kicker">每日籌碼戰報 · 2026/06/12（五）</div>
+  <h1 class="head">三大法人籌碼<span class="sub">外資 · 投信 · 自營商 · 期貨 · 主力分點</span></h1>
+  <p class="lede">外資台指期淨未平倉 <b>-65,039</b> 口，P/C 未平倉比 <b>1.68</b>，散戶小台多空比 <b>+24.8%</b>。</p>
 </header>
 
-<div class="plate"><span class="pno">Ⅰ</span><h2>三大法人買賣超</h2>
-  <span class="pen">INSTITUTIONAL FLOW</span></div>
-
+<section>
+  <div class="sec-h"><h2>三大法人買賣超</h2><span class="en">Institutional</span></div>
+  
     <div class="invblock">
-      <div class="invhead"><span class="zh">外資</span><span class="en">FOREIGN</span></div>
+      <div class="invhead"><span class="zh">外資</span><span class="en">Foreign</span></div>
       <div class="cols">
         <div class="col">
-          <div class="ch buy">買超 · LONG <span class="u">億</span></div>
-          <ul class="rank"><li><span class="rk">Ⅰ</span><span class="code">2408</span><span class="nm">南亞科</span><span class="amt buy">+94.30</span></li>
-<li><span class="rk">Ⅱ</span><span class="code">2330</span><span class="nm">台積電</span><span class="amt buy">+90.72</span></li>
-<li><span class="rk">Ⅲ</span><span class="code">2344</span><span class="nm">華邦電<span class="tag">連3</span></span><span class="amt buy">+57.75</span></li>
-<li><span class="rk">Ⅳ</span><span class="code">2891</span><span class="nm">中信金</span><span class="amt buy">+27.65</span></li>
-<li><span class="rk">Ⅴ</span><span class="code">3037</span><span class="nm">欣興</span><span class="amt buy">+25.85</span></li></ul>
+          <div class="ch">買超<span class="u">億元</span></div>
+          <ul class="rank"><li><span class="rk">1</span><span class="code">2408</span><span class="nm">南亞科</span><span class="amt buy">+94.30</span></li>
+<li><span class="rk">2</span><span class="code">2330</span><span class="nm">台積電</span><span class="amt buy">+90.72</span></li>
+<li><span class="rk">3</span><span class="code">2344</span><span class="nm">華邦電<span class="tag">連3日</span></span><span class="amt buy">+57.75</span></li>
+<li><span class="rk">4</span><span class="code">2891</span><span class="nm">中信金</span><span class="amt buy">+27.65</span></li>
+<li><span class="rk">5</span><span class="code">3037</span><span class="nm">欣興</span><span class="amt buy">+25.85</span></li></ul>
         </div>
         <div class="col">
-          <div class="ch sell">賣超 · SHORT <span class="u">億</span></div>
-          <ul class="rank"><li><span class="rk">Ⅰ</span><span class="code">2313</span><span class="nm">華通</span><span class="amt sell">-40.44</span></li>
-<li><span class="rk">Ⅱ</span><span class="code">6239</span><span class="nm">力成</span><span class="amt sell">-38.14</span></li>
-<li><span class="rk">Ⅲ</span><span class="code">2383</span><span class="nm">台光電</span><span class="amt sell">-34.41</span></li>
-<li><span class="rk">Ⅳ</span><span class="code">8021</span><span class="nm">尖點</span><span class="amt sell">-32.83</span></li>
-<li><span class="rk">Ⅴ</span><span class="code">3443</span><span class="nm">創意</span><span class="amt sell">-28.58</span></li></ul>
+          <div class="ch">賣超<span class="u">億元</span></div>
+          <ul class="rank"><li><span class="rk">1</span><span class="code">2313</span><span class="nm">華通</span><span class="amt sell">-40.44</span></li>
+<li><span class="rk">2</span><span class="code">6239</span><span class="nm">力成</span><span class="amt sell">-38.14</span></li>
+<li><span class="rk">3</span><span class="code">2383</span><span class="nm">台光電</span><span class="amt sell">-34.41</span></li>
+<li><span class="rk">4</span><span class="code">8021</span><span class="nm">尖點</span><span class="amt sell">-32.83</span></li>
+<li><span class="rk">5</span><span class="code">3443</span><span class="nm">創意</span><span class="amt sell">-28.58</span></li></ul>
         </div>
       </div>
     </div>
-
+  
     <div class="invblock">
-      <div class="invhead"><span class="zh">投信</span><span class="en">INVESTMENT TRUST</span></div>
+      <div class="invhead"><span class="zh">投信</span><span class="en">Inv. Trust</span></div>
       <div class="cols">
         <div class="col">
-          <div class="ch buy">買超 · LONG <span class="u">億</span></div>
-          <ul class="rank"><li><span class="rk">Ⅰ</span><span class="code">2327</span><span class="nm">國巨*<span class="tag">連7</span></span><span class="amt buy">+41.66</span></li>
-<li><span class="rk">Ⅱ</span><span class="code">2382</span><span class="nm">廣達<span class="tag">連17</span></span><span class="amt buy">+28.58</span></li>
-<li><span class="rk">Ⅲ</span><span class="code">4958</span><span class="nm">臻鼎-KY</span><span class="amt buy">+28.34</span></li>
-<li><span class="rk">Ⅳ</span><span class="code">6223</span><span class="nm">旺矽<span class="tag">連8</span></span><span class="amt buy">+28.29</span></li>
-<li><span class="rk">Ⅴ</span><span class="code">2303</span><span class="nm">聯電</span><span class="amt buy">+23.31</span></li></ul>
+          <div class="ch">買超<span class="u">億元</span></div>
+          <ul class="rank"><li><span class="rk">1</span><span class="code">2327</span><span class="nm">國巨*<span class="tag">連7日</span></span><span class="amt buy">+41.66</span></li>
+<li><span class="rk">2</span><span class="code">2382</span><span class="nm">廣達<span class="tag">連17日</span></span><span class="amt buy">+28.58</span></li>
+<li><span class="rk">3</span><span class="code">4958</span><span class="nm">臻鼎-KY</span><span class="amt buy">+28.34</span></li>
+<li><span class="rk">4</span><span class="code">6223</span><span class="nm">旺矽<span class="tag">連8日</span></span><span class="amt buy">+28.29</span></li>
+<li><span class="rk">5</span><span class="code">2303</span><span class="nm">聯電</span><span class="amt buy">+23.31</span></li></ul>
         </div>
         <div class="col">
-          <div class="ch sell">賣超 · SHORT <span class="u">億</span></div>
-          <ul class="rank"><li><span class="rk">Ⅰ</span><span class="code">2891</span><span class="nm">中信金</span><span class="amt sell">-20.02</span></li>
-<li><span class="rk">Ⅱ</span><span class="code">2308</span><span class="nm">台達電</span><span class="amt sell">-18.59</span></li>
-<li><span class="rk">Ⅲ</span><span class="code">2882</span><span class="nm">國泰金</span><span class="amt sell">-9.72</span></li>
-<li><span class="rk">Ⅳ</span><span class="code">2383</span><span class="nm">台光電</span><span class="amt sell">-8.90</span></li>
-<li><span class="rk">Ⅴ</span><span class="code">6669</span><span class="nm">緯穎</span><span class="amt sell">-8.59</span></li></ul>
+          <div class="ch">賣超<span class="u">億元</span></div>
+          <ul class="rank"><li><span class="rk">1</span><span class="code">2891</span><span class="nm">中信金</span><span class="amt sell">-20.02</span></li>
+<li><span class="rk">2</span><span class="code">2308</span><span class="nm">台達電</span><span class="amt sell">-18.59</span></li>
+<li><span class="rk">3</span><span class="code">2882</span><span class="nm">國泰金</span><span class="amt sell">-9.72</span></li>
+<li><span class="rk">4</span><span class="code">2383</span><span class="nm">台光電</span><span class="amt sell">-8.90</span></li>
+<li><span class="rk">5</span><span class="code">6669</span><span class="nm">緯穎</span><span class="amt sell">-8.59</span></li></ul>
         </div>
       </div>
     </div>
-
+  
     <div class="invblock">
-      <div class="invhead"><span class="zh">自營商</span><span class="en">DEALER</span></div>
+      <div class="invhead"><span class="zh">自營商</span><span class="en">Dealer</span></div>
       <div class="cols">
         <div class="col">
-          <div class="ch buy">買超 · LONG <span class="u">億</span></div>
-          <ul class="rank"><li><span class="rk">Ⅰ</span><span class="code">00403A</span><span class="nm">主動統一升級50</span><span class="amt buy">+19.10</span></li>
-<li><span class="rk">Ⅱ</span><span class="code">00631L</span><span class="nm">元大台灣50正2</span><span class="amt buy">+10.50</span></li>
-<li><span class="rk">Ⅲ</span><span class="code">2327</span><span class="nm">國巨*</span><span class="amt buy">+7.87</span></li>
-<li><span class="rk">Ⅳ</span><span class="code">2303</span><span class="nm">聯電<span class="tag">連4</span></span><span class="amt buy">+7.03</span></li>
-<li><span class="rk">Ⅴ</span><span class="code">00878</span><span class="nm">國泰永續高股息<span class="tag">連12</span></span><span class="amt buy">+6.35</span></li></ul>
+          <div class="ch">買超<span class="u">億元</span></div>
+          <ul class="rank"><li><span class="rk">1</span><span class="code">00403A</span><span class="nm">主動統一升級50</span><span class="amt buy">+19.10</span></li>
+<li><span class="rk">2</span><span class="code">00631L</span><span class="nm">元大台灣50正2</span><span class="amt buy">+10.50</span></li>
+<li><span class="rk">3</span><span class="code">2327</span><span class="nm">國巨*</span><span class="amt buy">+7.87</span></li>
+<li><span class="rk">4</span><span class="code">2303</span><span class="nm">聯電<span class="tag">連4日</span></span><span class="amt buy">+7.03</span></li>
+<li><span class="rk">5</span><span class="code">00878</span><span class="nm">國泰永續高股息<span class="tag">連12日</span></span><span class="amt buy">+6.35</span></li></ul>
         </div>
         <div class="col">
-          <div class="ch sell">賣超 · SHORT <span class="u">億</span></div>
-          <ul class="rank"><li><span class="rk">Ⅰ</span><span class="code">00919</span><span class="nm">群益台灣精選高息</span><span class="amt sell">-29.65</span></li>
-<li><span class="rk">Ⅱ</span><span class="code">00981A</span><span class="nm">主動統一台股增長</span><span class="amt sell">-12.22</span></li>
-<li><span class="rk">Ⅲ</span><span class="code">6274</span><span class="nm">台燿</span><span class="amt sell">-7.96</span></li>
-<li><span class="rk">Ⅳ</span><span class="code">00715L</span><span class="nm">期街口布蘭特正2</span><span class="amt sell">-5.37</span></li>
-<li><span class="rk">Ⅴ</span><span class="code">3042</span><span class="nm">晶技</span><span class="amt sell">-4.97</span></li></ul>
+          <div class="ch">賣超<span class="u">億元</span></div>
+          <ul class="rank"><li><span class="rk">1</span><span class="code">00919</span><span class="nm">群益台灣精選高息</span><span class="amt sell">-29.65</span></li>
+<li><span class="rk">2</span><span class="code">00981A</span><span class="nm">主動統一台股增長</span><span class="amt sell">-12.22</span></li>
+<li><span class="rk">3</span><span class="code">6274</span><span class="nm">台燿</span><span class="amt sell">-7.96</span></li>
+<li><span class="rk">4</span><span class="code">00715L</span><span class="nm">期街口布蘭特正2</span><span class="amt sell">-5.37</span></li>
+<li><span class="rk">5</span><span class="code">3042</span><span class="nm">晶技</span><span class="amt sell">-4.97</span></li></ul>
         </div>
       </div>
     </div>
-<div class="invblock">
-  <div class="invhead"><span class="zh">三大法人合計 淨買超 TOP5</span>
-    <span class="en">NET TOTAL</span></div>
-  <ul class="rank"><li><span class="rk">Ⅰ</span><span class="code">2408</span><span class="nm">南亞科</span><span class="amt buy">+103.93</span></li>
-<li><span class="rk">Ⅱ</span><span class="code">2330</span><span class="nm">台積電</span><span class="amt buy">+83.10</span></li>
-<li><span class="rk">Ⅲ</span><span class="code">2344</span><span class="nm">華邦電</span><span class="amt buy">+66.83</span></li>
-<li><span class="rk">Ⅳ</span><span class="code">2303</span><span class="nm">聯電</span><span class="amt buy">+50.67</span></li>
-<li><span class="rk">Ⅴ</span><span class="code">2327</span><span class="nm">國巨*</span><span class="amt buy">+42.54</span></li></ul>
-</div>
+  <div class="invblock">
+    <div class="invhead"><span class="zh">三大法人合計 淨買超 TOP5</span><span class="en">Net Total</span></div>
+    <ul class="rank"><li><span class="rk">1</span><span class="code">2408</span><span class="nm">南亞科</span><span class="amt buy">+103.93</span></li>
+<li><span class="rk">2</span><span class="code">2330</span><span class="nm">台積電</span><span class="amt buy">+83.10</span></li>
+<li><span class="rk">3</span><span class="code">2344</span><span class="nm">華邦電</span><span class="amt buy">+66.83</span></li>
+<li><span class="rk">4</span><span class="code">2303</span><span class="nm">聯電</span><span class="amt buy">+50.67</span></li>
+<li><span class="rk">5</span><span class="code">2327</span><span class="nm">國巨*</span><span class="amt buy">+42.54</span></li></ul>
+  </div>
+</section>
 
-<div class="plate"><span class="pno">Ⅱ</span><h2>期貨籌碼</h2>
-  <span class="pen">FUTURES &amp; OPTIONS</span></div>
-<div class="gauges">
-    <figure class="gauge" style="--c:var(--magenta)">
-      <svg viewBox="0 0 240 156" role="img" aria-label="P/C 未平倉比 1.68">
-        <path d="M 20.0 122.0 A 100 100 0 0 1 220.0 122.0" class="gbezel"/>
-        <path d="M 28.0 122.0 A 92 92 0 0 1 212.0 122.0" class="gtrack"/>
-        <g class="gticks"><line x1="26.0" y1="122.0" x2="39.0" y2="122.0" class="gtick"/><line x1="30.6" y1="93.0" x2="38.2" y2="95.4" class="gtick"/><line x1="44.0" y1="66.7" x2="50.4" y2="71.5" class="gtick"/><line x1="64.7" y1="46.0" x2="69.5" y2="52.4" class="gtick"/><line x1="91.0" y1="32.6" x2="93.4" y2="40.2" class="gtick"/><line x1="120.0" y1="28.0" x2="120.0" y2="41.0" class="gtick"/><line x1="149.0" y1="32.6" x2="146.6" y2="40.2" class="gtick"/><line x1="175.3" y1="46.0" x2="170.5" y2="52.4" class="gtick"/><line x1="196.0" y1="66.7" x2="189.6" y2="71.5" class="gtick"/><line x1="209.4" y1="93.0" x2="201.8" y2="95.4" class="gtick"/><line x1="214.0" y1="122.0" x2="201.0" y2="122.0" class="gtick"/></g>
-        <path d="M 59.8 52.5 A 92 92 0 0 1 143.8 33.1" class="gfill"/>
-        <ellipse cx="120" cy="84" rx="74" ry="34" fill="url(#glass)"/>
-        <line x1="120" y1="122" x2="139.2" y2="50.5" class="gneedle"/>
-        <circle cx="120" cy="122" r="10" class="ghub"/>
-        <circle cx="120" cy="122" r="3.6" class="ghub2"/>
-      </svg>
-      <figcaption>
-        <div class="greadout">1.68</div>
-        <div class="glabel">P/C 未平倉比</div>
-        <div class="glabel-en">PUT/CALL OI</div>
-      </figcaption>
-    </figure>
-    <figure class="gauge" style="--c:var(--magenta)">
-      <svg viewBox="0 0 240 156" role="img" aria-label="散戶小台多空比 +24.8%">
-        <path d="M 20.0 122.0 A 100 100 0 0 1 220.0 122.0" class="gbezel"/>
-        <path d="M 28.0 122.0 A 92 92 0 0 1 212.0 122.0" class="gtrack"/>
-        <g class="gticks"><line x1="26.0" y1="122.0" x2="39.0" y2="122.0" class="gtick"/><line x1="30.6" y1="93.0" x2="38.2" y2="95.4" class="gtick"/><line x1="44.0" y1="66.7" x2="50.4" y2="71.5" class="gtick"/><line x1="64.7" y1="46.0" x2="69.5" y2="52.4" class="gtick"/><line x1="91.0" y1="32.6" x2="93.4" y2="40.2" class="gtick"/><line x1="120.0" y1="28.0" x2="120.0" y2="41.0" class="gtick"/><line x1="149.0" y1="32.6" x2="146.6" y2="40.2" class="gtick"/><line x1="175.3" y1="46.0" x2="170.5" y2="52.4" class="gtick"/><line x1="196.0" y1="66.7" x2="189.6" y2="71.5" class="gtick"/><line x1="209.4" y1="93.0" x2="201.8" y2="95.4" class="gtick"/><line x1="214.0" y1="122.0" x2="201.0" y2="122.0" class="gtick"/></g>
-        <path d="M 120.0 30.0 A 92 92 0 0 1 175.6 48.7" class="gfill"/>
-        <ellipse cx="120" cy="84" rx="74" ry="34" fill="url(#glass)"/>
-        <line x1="120" y1="122" x2="164.7" y2="63.0" class="gneedle"/>
-        <circle cx="120" cy="122" r="10" class="ghub"/>
-        <circle cx="120" cy="122" r="3.6" class="ghub2"/>
-      </svg>
-      <figcaption>
-        <div class="greadout">+24.8%</div>
-        <div class="glabel">散戶小台多空比</div>
-        <div class="glabel-en">RETAIL · MTX</div>
-      </figcaption>
-    </figure>
-    <figure class="gauge" style="--c:var(--magenta)">
-      <svg viewBox="0 0 240 156" role="img" aria-label="散戶微台多空比 +32.1%">
-        <path d="M 20.0 122.0 A 100 100 0 0 1 220.0 122.0" class="gbezel"/>
-        <path d="M 28.0 122.0 A 92 92 0 0 1 212.0 122.0" class="gtrack"/>
-        <g class="gticks"><line x1="26.0" y1="122.0" x2="39.0" y2="122.0" class="gtick"/><line x1="30.6" y1="93.0" x2="38.2" y2="95.4" class="gtick"/><line x1="44.0" y1="66.7" x2="50.4" y2="71.5" class="gtick"/><line x1="64.7" y1="46.0" x2="69.5" y2="52.4" class="gtick"/><line x1="91.0" y1="32.6" x2="93.4" y2="40.2" class="gtick"/><line x1="120.0" y1="28.0" x2="120.0" y2="41.0" class="gtick"/><line x1="149.0" y1="32.6" x2="146.6" y2="40.2" class="gtick"/><line x1="175.3" y1="46.0" x2="170.5" y2="52.4" class="gtick"/><line x1="196.0" y1="66.7" x2="189.6" y2="71.5" class="gtick"/><line x1="209.4" y1="93.0" x2="201.8" y2="95.4" class="gtick"/><line x1="214.0" y1="122.0" x2="201.0" y2="122.0" class="gtick"/></g>
-        <path d="M 120.0 30.0 A 92 92 0 0 1 188.5 60.6" class="gfill"/>
-        <ellipse cx="120" cy="84" rx="74" ry="34" fill="url(#glass)"/>
-        <line x1="120" y1="122" x2="175.1" y2="72.6" class="gneedle"/>
-        <circle cx="120" cy="122" r="10" class="ghub"/>
-        <circle cx="120" cy="122" r="3.6" class="ghub2"/>
-      </svg>
-      <figcaption>
-        <div class="greadout">+32.1%</div>
-        <div class="glabel">散戶微台多空比</div>
-        <div class="glabel-en">RETAIL · TMF</div>
-      </figcaption>
-    </figure></div><div class="huds"><div class="hud"><div class="hl">外資台指期 淨未平倉<span class="he">FOREIGN · TX</span></div><div class="hv">-65,039<span class="hu">口</span><span class="d down">▼-1,871</span></div></div><div class="hud"><div class="hl">外資買權 CALL 淨OI<span class="he">FOREIGN · CALL</span></div><div class="hv">+2,347<span class="hu">口</span><span class="d down">▼-241</span></div></div><div class="hud"><div class="hl">外資賣權 PUT 淨OI<span class="he">FOREIGN · PUT</span></div><div class="hv">+5,948<span class="hu">口</span><span class="d up">▲+535</span></div></div><div class="hud"><div class="hl">散戶小台 淨未平倉<span class="he">RETAIL · MTX</span></div><div class="hv">+9,801<span class="hu">口</span><span class="d down">▼-489</span></div></div><div class="hud"><div class="hl">散戶微台 淨未平倉<span class="he">RETAIL · TMF</span></div><div class="hv">+28,846<span class="hu">口</span><span class="d down">▼-6,160</span></div></div></div><div class="charts"><figure><img src="foreign_futures.png" alt="期貨籌碼走勢圖" loading="lazy"></figure><figure><img src="retail_futures.png" alt="期貨籌碼走勢圖" loading="lazy"></figure></div>
+<section>
+  <div class="sec-h"><h2>期貨籌碼</h2><span class="en">Futures &amp; Options</span></div>
+  <div class="meters">
+    <div class="meter">
+      <div class="m-top"><span class="m-read hi">1.68</span></div>
+      <div class="m-bar">
+        <span class="m-fill" style="left:27.3%;width:31.1%"></span>
+        <span class="m-neutral" style="left:27.3%"></span>
+        <span class="m-dot" style="left:58.3%"></span>
+      </div>
+      <div class="m-label">P/C 未平倉比</div>
+      <div class="m-sub">1.00 為多空均衡</div>
+    </div>
+    <div class="meter">
+      <div class="m-top"><span class="m-read hi">+24.8%</span></div>
+      <div class="m-bar">
+        <span class="m-fill" style="left:50.0%;width:20.7%"></span>
+        <span class="m-neutral" style="left:50.0%"></span>
+        <span class="m-dot" style="left:70.7%"></span>
+      </div>
+      <div class="m-label">散戶小台多空比</div>
+      <div class="m-sub">正值偏多 · 負值偏空</div>
+    </div>
+    <div class="meter">
+      <div class="m-top"><span class="m-read hi">+32.1%</span></div>
+      <div class="m-bar">
+        <span class="m-fill" style="left:50.0%;width:26.7%"></span>
+        <span class="m-neutral" style="left:50.0%"></span>
+        <span class="m-dot" style="left:76.8%"></span>
+      </div>
+      <div class="m-label">散戶微台多空比</div>
+      <div class="m-sub">正值偏多 · 負值偏空</div>
+    </div></div><div class="stats"><div class="stat"><div class="sl">外資台指期 淨未平倉</div><div class="sv">-65,039<span class="su">口</span><span class="d down">-1,871</span></div></div><div class="stat"><div class="sl">外資買權 CALL 淨OI</div><div class="sv">+2,347<span class="su">口</span><span class="d down">-241</span></div></div><div class="stat"><div class="sl">外資賣權 PUT 淨OI</div><div class="sv">+5,948<span class="su">口</span><span class="d up">+535</span></div></div><div class="stat"><div class="sl">散戶小台 淨未平倉</div><div class="sv">+9,801<span class="su">口</span><span class="d down">-489</span></div></div><div class="stat"><div class="sl">散戶微台 淨未平倉</div><div class="sv">+28,846<span class="su">口</span><span class="d down">-6,160</span></div></div></div><div class="charts"><figure><img src="foreign_futures.png" alt="期貨籌碼走勢圖" loading="lazy"></figure><figure><img src="retail_futures.png" alt="期貨籌碼走勢圖" loading="lazy"></figure></div>
+</section>
 
-<div class="plate"><span class="pno">Ⅲ</span><h2>主力分點異動</h2>
-  <span class="pen">BROKER BRANCH · 2026/06/12（五）</span></div>
-<div class="alert"><div class="ahead"><span class="zh">連續買超警報</span><span class="en">CONSECUTIVE ACCUMULATION</span></div><ul class="evt"><li><b>2609 陽明</b><div class="sub">台灣摩根士丹利 連 12 天 ↗ 累積 77,182 張　均成本 52.57　<span class="sell">現價 52.40（套牢 -0.3%）</span></div></li>
-<li><b>2890 永豐金</b><div class="sub">新加坡商瑞銀 連 11 天 ↗ 累積 70,799 張　均成本 32.62　<span class="buy">現價 34.15（獲利 +4.7%）</span></div></li>
-<li><b>2303 聯電</b><div class="sub">摩根大通 連 9 天 ↗ 累積 115,508 張　均成本 126.17　<span class="buy">現價 133.50（獲利 +5.8%）</span></div></li>
-<li><b>3702 大聯大</b><div class="sub">新加坡商瑞銀 連 9 天 ↗ 累積 15,037 張　均成本 111.03　<span class="sell">現價 105.00（套牢 -5.4%）</span></div></li>
-<li><b>2027 大成鋼</b><div class="sub">台灣摩根士丹利 連 8 天 ↗ 累積 32,670 張　均成本 43.08　<span class="buy">現價 43.55（獲利 +1.1%）</span></div></li>
-<li><b>2867 三商壽</b><div class="sub">台灣摩根士丹利 連 8 天 ↗ 累積 19,178 張　均成本 8.14　<span class="buy">現價 8.24（獲利 +1.2%）</span></div></li>
-<li><b>3045 台灣大</b><div class="sub">台灣摩根士丹利 連 8 天 ↗ 累積 18,918 張　均成本 117.43　<span class="buy">現價 119.50（獲利 +1.8%）</span></div></li>
-<li><b>8464 億豐</b><div class="sub">港商麥格理 連 8 天 ↗ 累積 1,807 張　均成本 330.56　<span class="buy">現價 348.50（獲利 +5.4%）</span></div></li></ul></div><div class="alert"><div class="ahead"><span class="zh">新進大戶</span><span class="en">NEW WHALE ENTRY</span></div><ul class="evt"><li><b>2887 台新新光金</b><div class="sub">大和國泰 新買 18,941 張（佔成交 12.0%）</div></li>
-<li><b>2303 聯電</b><div class="sub">元大證券 新買 12,957 張（佔成交 3.3%）</div></li>
-<li><b>2887 台新新光金</b><div class="sub">富邦證券 新買 10,078 張（佔成交 6.4%）</div></li>
-<li><b>2344 華邦電</b><div class="sub">富邦證券 新買 9,117 張（佔成交 4.3%）</div></li>
-<li><b>2303 聯電</b><div class="sub">凱基-信義 新買 8,141 張（佔成交 2.1%）</div></li>
-<li><b>2344 華邦電</b><div class="sub">元大證券 新買 6,756 張（佔成交 3.2%）</div></li>
-<li><b>2382 廣達</b><div class="sub">富邦證券 新買 5,645 張（佔成交 23.2%）</div></li>
-<li><b>2408 南亞科</b><div class="sub">元大證券 新買 3,420 張（佔成交 3.6%）</div></li></ul></div><div class="alert"><div class="ahead"><span class="zh">大量買超 · 佔成交 &gt;10%</span><span class="en">HEAVY VOLUME</span></div><ul class="evt"><li><b>6805 富世達</b><div class="sub">統一 +707 張（佔成交 40.2%）</div></li>
-<li><b>2891 中信金</b><div class="sub">台灣摩根士丹利 +24,312 張（佔成交 29.5%）</div></li>
-<li><b>4904 遠傳</b><div class="sub">新加坡商瑞銀 +2,642 張（佔成交 26.0%）</div></li>
-<li><b>2515 中工</b><div class="sub">台灣摩根士丹利 +2,057 張（佔成交 25.2%）</div></li>
-<li><b>2637 慧洋-KY</b><div class="sub">台灣摩根士丹利 +1,646 張（佔成交 24.8%）</div></li>
-<li><b>8464 億豐</b><div class="sub">港商麥格理 +134 張（佔成交 23.6%）</div></li>
-<li><b>2382 廣達</b><div class="sub">富邦證券 +5,645 張（佔成交 23.2%）</div></li>
-<li><b>2014 中鴻</b><div class="sub">台灣摩根士丹利 +2,075 張（佔成交 23.2%）</div></li></ul></div>
+<section>
+  <div class="sec-h"><h2>主力分點異動</h2><span class="en">Broker · 2026/06/12（五）</span></div>
+  <div class="alert"><div class="ahead"><span class="zh">連續買超警報</span><span class="en">CONSECUTIVE</span></div><ul class="evt"><li><div class="ev-h"><b>2609 陽明</b><span class="ev-k">連 12 日</span></div><div class="sub">台灣摩根士丹利・累積 77,182 張　均成本 52.57　<span class="sell">現價 52.40・套牢 -0.3%</span></div></li>
+<li><div class="ev-h"><b>2890 永豐金</b><span class="ev-k">連 11 日</span></div><div class="sub">新加坡商瑞銀・累積 70,799 張　均成本 32.62　<span class="buy">現價 34.15・獲利 +4.7%</span></div></li>
+<li><div class="ev-h"><b>2303 聯電</b><span class="ev-k">連 9 日</span></div><div class="sub">摩根大通・累積 115,508 張　均成本 126.17　<span class="buy">現價 133.50・獲利 +5.8%</span></div></li>
+<li><div class="ev-h"><b>3702 大聯大</b><span class="ev-k">連 9 日</span></div><div class="sub">新加坡商瑞銀・累積 15,037 張　均成本 111.03　<span class="sell">現價 105.00・套牢 -5.4%</span></div></li>
+<li><div class="ev-h"><b>2027 大成鋼</b><span class="ev-k">連 8 日</span></div><div class="sub">台灣摩根士丹利・累積 32,670 張　均成本 43.08　<span class="buy">現價 43.55・獲利 +1.1%</span></div></li>
+<li><div class="ev-h"><b>2867 三商壽</b><span class="ev-k">連 8 日</span></div><div class="sub">台灣摩根士丹利・累積 19,178 張　均成本 8.14　<span class="buy">現價 8.24・獲利 +1.2%</span></div></li></ul></div><div class="alert"><div class="ahead"><span class="zh">新進大戶</span><span class="en">NEW ENTRY</span></div><ul class="evt"><li><div class="ev-h"><b>2887 台新新光金</b><span class="ev-k">18,941 張</span></div><div class="sub">大和國泰 今日新進・佔成交 12.0%</div></li>
+<li><div class="ev-h"><b>2303 聯電</b><span class="ev-k">12,957 張</span></div><div class="sub">元大證券 今日新進・佔成交 3.3%</div></li>
+<li><div class="ev-h"><b>2887 台新新光金</b><span class="ev-k">10,078 張</span></div><div class="sub">富邦證券 今日新進・佔成交 6.4%</div></li>
+<li><div class="ev-h"><b>2344 華邦電</b><span class="ev-k">9,117 張</span></div><div class="sub">富邦證券 今日新進・佔成交 4.3%</div></li>
+<li><div class="ev-h"><b>2303 聯電</b><span class="ev-k">8,141 張</span></div><div class="sub">凱基-信義 今日新進・佔成交 2.1%</div></li>
+<li><div class="ev-h"><b>2344 華邦電</b><span class="ev-k">6,756 張</span></div><div class="sub">元大證券 今日新進・佔成交 3.2%</div></li></ul></div><div class="alert"><div class="ahead"><span class="zh">大量買超・佔成交 &gt;10%</span><span class="en">HEAVY VOLUME</span></div><ul class="evt"><li><div class="ev-h"><b>6805 富世達</b><span class="ev-k">40.2%</span></div><div class="sub">統一・買超 +707 張</div></li>
+<li><div class="ev-h"><b>2891 中信金</b><span class="ev-k">29.5%</span></div><div class="sub">台灣摩根士丹利・買超 +24,312 張</div></li>
+<li><div class="ev-h"><b>4904 遠傳</b><span class="ev-k">26.0%</span></div><div class="sub">新加坡商瑞銀・買超 +2,642 張</div></li>
+<li><div class="ev-h"><b>2515 中工</b><span class="ev-k">25.2%</span></div><div class="sub">台灣摩根士丹利・買超 +2,057 張</div></li>
+<li><div class="ev-h"><b>2637 慧洋-KY</b><span class="ev-k">24.8%</span></div><div class="sub">台灣摩根士丹利・買超 +1,646 張</div></li>
+<li><div class="ev-h"><b>8464 億豐</b><span class="ev-k">23.6%</span></div><div class="sub">港商麥格理・買超 +134 張</div></li></ul></div>
+</section>
 
 <footer>
-  <div class="gline"></div>
-  <span class="hl-cyan">⚙ 三籌資本自動產製</span> · 每交易日 18:00 更新<br>
-  本頁僅供參考，不構成投資建議 · 產製 2026/06/13 18:21
+  <b>三籌資本</b> · 每交易日 18:00 自動更新 · 資料來源 TWSE / TPEX / TAIFEX<br>
+  本頁僅供參考，不構成投資建議 · 產製時間 2026/06/13 18:57
 </footer>
-</div>
+
 </div>
 </body>
 </html>
